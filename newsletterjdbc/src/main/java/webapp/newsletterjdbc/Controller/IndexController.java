@@ -22,12 +22,17 @@ public class IndexController {
         return mv;
     }
 
-@RequestMapping(value= "/", method=RequestMethod.POST)
-public ModelAndView enviarEmailBanco(@RequestParam("email") String email) {
-   ModelAndView mv = new ModelAndView("index");
-   new IndexDAO().cadastrar(email);
-    return mv;
-}
+    @RequestMapping(value= "/", method=RequestMethod.POST)
+    public ModelAndView enviarDadosBanco(
+            @RequestParam("email") String email,
+            @RequestParam("nome") String nome,
+            @RequestParam("telefone") String telefone,
+            @RequestParam("cidade") String cidade) {
+        
+        ModelAndView mv = new ModelAndView("index");
+        new IndexDAO().cadastrar(email, nome, telefone, cidade);
+        return mv;
+    }
 
 
 }
