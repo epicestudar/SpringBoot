@@ -9,5 +9,13 @@
     <h1>Hello, World</h1>
 
     <span th:text="${msg}"></span>
+    <br>
+    <form method="post">
+        Buscar : <input type="text" name="buscar" id="buscar">
+        <button type="submit">Enviar</button>
+        </form>
+        <span th:if="${buscar}">
+        O valor da busca é:<span th:text="${buscar}"></span>
+        </span>
 </body>
 </html>
