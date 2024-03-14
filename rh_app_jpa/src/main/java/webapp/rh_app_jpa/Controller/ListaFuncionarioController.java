@@ -25,7 +25,7 @@ public class ListaFuncionarioController {
     @RequestMapping(value = "/deletarfuncionario/{id}", method = RequestMethod.GET)
     public String deletarFuncionario(@PathVariable("id") long id) {
         fr.delete(fr.findById(id));
-        return "redirect:/lista";
+        return "redirect:/listafuncionarios";
     }
 
     @RequestMapping(value = "/editarfuncionario/{id}", method = RequestMethod.GET)
