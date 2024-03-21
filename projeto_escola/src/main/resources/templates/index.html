@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Inicial</title>
+
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+     <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+    <header>
+        <h1>Escola XYZ</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Cursos</a>
+            <a href="#">Metodologias</a>
+            <div>
+                <a href="#"><i class="fas fa-user-graduate"></i> Alunos</a>
+                <a href="#"><i class="fas fa-chalkboard-teacher"></i> Professores</a>
+                <a href="/administrador.html"><i class="fas fa-user-tie"></i> Administradores</a> 
+            </div>
+        </nav>
+    </header>
+    
+</body>
+
+<!-- Bootstrap JavaScript -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-hk0lK1tC3jWlqVixCxkdjfkEREb/tIj8YT0PfZ3MmyniJGQA/Gb8z9RGy5u2Zss7" crossorigin="anonymous"></script>
+
+</html>

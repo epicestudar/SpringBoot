@@ -1,27 +1,25 @@
-package webapp.rh_app_jpa.Model;
+package com.example.projeto_escola.Model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
-public class Funcionario implements Serializable {
+public class Administrador implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long cpf;
     private String nome;
     private String email;
 
-    public long getId() {
-        return id;
+    public long getCpf() {
+        return cpf;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setCpf(long cpf) {
+        this.cpf = cpf;
     }
 
     public String getNome() {
@@ -39,5 +37,4 @@ public class Funcionario implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
 }

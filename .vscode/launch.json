@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ProjetoEscolaApplication",
+            "request": "launch",
+            "mainClass": "com.example.projeto_escola.ProjetoEscolaApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "JavaApplication",
+            "request": "launch",
+            "mainClass": "main.java.JavaApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RhAppJpaApplication<rh_app_jpa>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "webapp.rh_app_jpa.RhAppJpaApplication",
+            "projectName": "rh_app_jpa",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
