@@ -8,15 +8,20 @@
 		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>projeto_escola</artifactId>
+	<groupId>com.webapp</groupId>
+	<artifactId>escola_spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>projeto_escola</name>
+	<name>escola_spring</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

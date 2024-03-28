@@ -1,13 +1,13 @@
-package com.example.projeto_escola;
+package com.webapp.escola_spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjetoEscolaApplication {
+public class EscolaSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjetoEscolaApplication.class, args);
+		SpringApplication.run(EscolaSpringApplication.class, args);
 	}
 
 }

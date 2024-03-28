@@ -1,0 +1,44 @@
+body {
+    background-color: #f8f9fa;
+}
+.login-container {
+    margin-top: 100px;
+}
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.card-header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+.card-body {
+    padding: 40px;
+}
+.form-group {
+    margin-bottom: 25px;
+}
+.form-group input {
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+.btn-login {
+    background-color: #333;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn-login:hover {
+    background-color: #555;
+}
+form a {
+    text-decoration: none;
+    color: #333;
+}
