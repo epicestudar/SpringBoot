@@ -1,7 +1,7 @@
-package com.webapp.escola_spring.Repository;
+// package com.webapp.escola_spring.Repository;
 
-import org.springframework.data.repository.CrudRepository;
+// import org.springframework.data.repository.CrudRepository;
 
-public interface VerificaCadastroDocente extends CrudRepository<VerificaCadastroDocente, String>{
-    VerificaCadastroDocente findByEmailInstitucional(String emailInstitucional);
-}
+// public interface VerificaCadastroDocente extends CrudRepository<VerificaCadastroDocente, String>{
+//     VerificaCadastroDocente findByEmailInstitucional(String emailInstitucional);
+// }
