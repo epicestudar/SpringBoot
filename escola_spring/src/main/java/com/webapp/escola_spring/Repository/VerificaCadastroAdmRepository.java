@@ -7,5 +7,5 @@ import java.util.List;
 
 
 public interface VerificaCadastroAdmRepository extends CrudRepository<VerificaCadastroAdm, String>{
-    VerificaCadastroAdm findByCpf(String cpf);
+    // VerificaCadastroAdm findByCpf(String cpf);
 }
