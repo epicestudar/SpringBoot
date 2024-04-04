@@ -1,0 +1,16 @@
+gerenciamento de uma escola
+ adm: 
+- acesso global 
+- consegue fazer cadastro de alunos(matricula) 
+- dados do aluno e disciplinas que ele vai fazer 
+- cadastro do professor (atribuir discplinas para o professor) 
+- filtros (listar alunos e docentes)
+
+ aluno: 
+- acesso interno (area do aluno, user/pass) 
+- ver informações das suas disciplinas 
+
+ professor: 
+- acesso interno (area do professor, user/pass) 
+- lançar notas para os alunos 
+- listar alunos cadastrados em suas disciplinas 
