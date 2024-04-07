@@ -11,10 +11,6 @@
     list-style: none;
 }
 
-body {
-    /* min-height: 100vh; */
-}
-
 header{
     position: fixed;
     top: 0;

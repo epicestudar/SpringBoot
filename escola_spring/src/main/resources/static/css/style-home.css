@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container img{
+    width: 100%;
+}
+.container button{
+    position: absolute; top: 70%; left: 28%; transform: translate(-50%, -50%);
+    background: transparent;
+    width: 180px;
+    height: 60px;
+    border: none;
+}
