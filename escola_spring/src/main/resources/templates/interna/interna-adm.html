@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Interna do Administrador</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/style-interna_adm.css}">
 </head>
 <body>
-    <h1>Adm autenticado com sucesso</h1>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="container">
+        <h1>Adm autenticado com sucesso</h1>
     <a href="/cadastro-aluno"><button>Cadastro de Alunos</button></a>
     <a href="/cadastro-docente"><button>Cadastro de Docentes</button></a>
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
 </body>
 </html>

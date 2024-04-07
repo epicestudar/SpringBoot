@@ -10,31 +10,62 @@
     <link rel="stylesheet" th:href="@{css/style-login.css}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
     <div th:insert="~{fragmentos/header :: header}"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="login-container">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Login do Docente</h3>
-                        </div>
-                        <div class="card-body">
-                            <form action="acesso-docente" method="post">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email Institucional do Docente" name="email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Senha" name="senha">
-                                </div>
-                                <button type="submit" class="btn btn-block btn-login"><i class="fas fa-sign-in-alt"></i> Entrar</button>
-                                <a href=""><button type="button" class="btn btn-block btn-login"><i class="fas fa-sign-in-alt"></i> Problemas com seu Email ou Senha?</button></a>
-                            </form>
-                        </div>
-                    </div>
+    <div class="login-card-container">
+        <div class="login-card">
+            <div class="login-card-logo">
+                <i class="ri-presentation-fill"></i>
+            </div>
+            <div class="login-card-header">
+                <h1>Faça seu Login</h1>
+                <div>Logo depois você será redirecionado para a Página do Docente</div>
+            </div>
+            <form action="acesso-docente" class="login-card-form" method="post">
+                <div class="form-item">
+                    <i class="ri-mail-fill form-item-icon"></i>
+                    <input type="text" placeholder="Email Institucional do Docente" name="email" id="emailForm" 
+                    autofocus required>
                 </div>
+                <div class="form-item">
+                    <i class="ri-lock-fill form-item-icon"></i>
+                    <input type="password" placeholder="Senha" name="senha" id="passwordForm"
+                     required>
+                </div>
+                <div class="form-item-other">
+                    <div class="checkbox">
+                        <input type="checkbox" id="rememberMeCheckbox" checked>
+                        <label for="rememberMeCheckbox">Salvar login</label>
+                    </div>
+                    <a href="#">Eu esqueci minha senha!</a>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <div class="login-card-footer">
+                Não tem uma conta? <a href="#">Pedir ao administrador para criar uma.</a>
+            </div>
+        </div>
+        <div class="login-card-social">
+            <div>Other Sign-In Options</div>
+            <div class="login-card-social-btns">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-google" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M17.788 5.108a9 9 0 1 0 3.212 6.892h-8"></path>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
