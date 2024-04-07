@@ -10,7 +10,9 @@
     text-decoration: none;
     list-style: none;
 }
-
+.container{
+    margin-top: 10%;
+}
 header{
     position: fixed;
     top: 0;
