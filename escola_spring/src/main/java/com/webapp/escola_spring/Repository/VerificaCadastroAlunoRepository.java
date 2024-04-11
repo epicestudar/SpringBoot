@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import com.webapp.escola_spring.Model.VerificaCadastroAluno;
 
 public interface VerificaCadastroAlunoRepository extends CrudRepository<VerificaCadastroAluno, String>{
-    VerificaCadastroAlunoRepository findByRa(String ra);
+    VerificaCadastroAluno findByRa(String ra);
 }

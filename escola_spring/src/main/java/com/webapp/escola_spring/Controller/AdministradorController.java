@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.webapp.escola_spring.Model.Administrador;
-import com.webapp.escola_spring.Model.Aluno;
 import com.webapp.escola_spring.Repository.AdministradorRepository;
 import com.webapp.escola_spring.Repository.AlunoRepository;
 import com.webapp.escola_spring.Repository.VerificaCadastroAdmRepository;
@@ -29,6 +28,7 @@ VerificaCadastroAdmRepository vcar;
 @Autowired VerificaCadastroAlunoRepository vlcar;
 
 boolean acessoAdm = false;
+boolean acessoAluno = false;
 
 @PostMapping("cadastrar-adm")
 public String cadastrarAdmBD(Administrador adm) {
@@ -73,18 +73,6 @@ public String acessoAdm(@RequestParam String cpf, @RequestParam String senha) {
         return "redirect:/login-adm";
     }
 }
-
-@PostMapping("cadastrar-aluno")
-public String cadastrarAlunoBD(Aluno aluno) {
-    boolean verificaRa = vcar.existsById(aluno.getRa());
-    if(verificaRa) {
-        alr.save(aluno);
-        System.out.println("Cadastro realizado com sucesso!");
-    }
-    else{
-        System.out.println("Falha ao cadastrar o RA");
-    }
-
-    return "/interna/interna-adm";
 }
-}
+
+
