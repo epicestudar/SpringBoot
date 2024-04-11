@@ -2,6 +2,7 @@ package com.webapp.escola_spring.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,16 +22,17 @@ public class AlunoController {
     boolean acessoAluno = false;
 
     @PostMapping("cadastrar-aluno")
-    public String cadastrarAlunoBD(Aluno aluno) {
+    public String cadastrarAlunoBD(Aluno aluno, Model model) {
         boolean verificaRa = vlcar.existsById(aluno.getRa());
         if (verificaRa) {
             alr.save(aluno);
             System.out.println("Cadastro realizado com sucesso!");
+            return "/login/login-aluno";
         } else {
             System.out.println("Falha ao cadastrar o RA");
+            model.addAttribute("erro", "RA não encontrado no banco");
+            return "/cadastro/cadastro-aluno";
         }
-
-        return "/interna/interna-adm";
     }
 
     @GetMapping("/interna-aluno")

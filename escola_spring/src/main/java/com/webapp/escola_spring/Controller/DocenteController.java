@@ -2,6 +2,7 @@ package com.webapp.escola_spring.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,16 +21,17 @@ public class DocenteController {
     boolean acessoDocente = false;
 
     @PostMapping("cadastrar-docente")
-    public String cadastrarDocenteBD(Docente docente) {
+    public String cadastrarDocenteBD(Docente docente, Model model) {
         boolean verificaEmail = vlcar.existsById(docente.getEmailInstitucional());
         if (verificaEmail) {
             alr.save(docente);
             System.out.println("Cadastro realizado com sucesso!");
+            return "/login/login-docente";
         } else {
             System.out.println("Falha ao cadastrar o Email");
+            model.addAttribute("erro", "Email não encontrado no banco");
+            return "/cadastro/cadastro-adm";
         }
-
-        return "/interna/interna-adm";
     }
 
     @GetMapping("/interna-docente")

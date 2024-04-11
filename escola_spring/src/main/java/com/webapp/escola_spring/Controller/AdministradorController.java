@@ -5,9 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.webapp.escola_spring.Model.Administrador;
 import com.webapp.escola_spring.Repository.AdministradorRepository;
-import com.webapp.escola_spring.Repository.AlunoRepository;
 import com.webapp.escola_spring.Repository.VerificaCadastroAdmRepository;
-import com.webapp.escola_spring.Repository.VerificaCadastroAlunoRepository;
+
+import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,28 +21,25 @@ public class AdministradorController {
 AdministradorRepository ar;
 
 @Autowired
-AlunoRepository alr;
-
-@Autowired
 VerificaCadastroAdmRepository vcar;
 
-@Autowired VerificaCadastroAlunoRepository vlcar;
-
 boolean acessoAdm = false;
-boolean acessoAluno = false;
 
 @PostMapping("cadastrar-adm")
-public String cadastrarAdmBD(Administrador adm) {
+public String cadastrarAdmBD(Administrador adm, Model model) {
     boolean verificaCpf = vcar.existsById(adm.getCpf());
     if(verificaCpf) {
         ar.save(adm);
         System.out.println("Cadastro realizado com sucesso!");
+        return "/login/login-adm";
     }
     else{
         System.out.println("Falha ao cadastrar o CPF");
+        model.addAttribute("erro", "CPF não encontrado no banco");
+        return "/cadastro/cadastro-adm";
     }
 
-    return "/login/login-adm";
+    
 }
 
 @GetMapping("/interna-adm")
@@ -56,8 +54,7 @@ public String acessoPageInternaAdm() {
 }
 
 @PostMapping("acesso-adm")
-public String acessoAdm(@RequestParam String cpf, @RequestParam String senha) {
-    // método para verificar acesso
+public String acessoAdm(@RequestParam String cpf, @RequestParam String senha, Model model) {
     try {
         boolean verificaCpf = ar.existsById(cpf);
         boolean verificaSenha = ar.findByCpf(cpf).getSenha().equals(senha);
@@ -65,7 +62,8 @@ public String acessoAdm(@RequestParam String cpf, @RequestParam String senha) {
         if (verificaCpf && verificaSenha) {
             acessoAdm = true;
             url = "redirect:/interna-adm";
-        } else{
+        } else {
+            model.addAttribute("erro", "Credenciais inválidas. Por favor, tente novamente.");
             url = "redirect:/login-adm";
         }
         return url;
@@ -73,6 +71,7 @@ public String acessoAdm(@RequestParam String cpf, @RequestParam String senha) {
         return "redirect:/login-adm";
     }
 }
+
 }
 
 

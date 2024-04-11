@@ -38,3 +38,12 @@ body {
 .btn-register:hover {
     background-color: #555;
 }
+.alert{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+.alert p{
+    color: black;
+}

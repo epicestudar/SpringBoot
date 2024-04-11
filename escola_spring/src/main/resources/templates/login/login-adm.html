@@ -17,6 +17,9 @@
     <div th:insert="~{fragmentos/header :: header}"></div>
     <div class="login-card-container">
         <div class="login-card">
+            <div th:if="${erro}" class="alert alert-danger" role="alert">
+                <p th:text="${erro}"></p>
+            </div>
             <div class="login-card-logo">
                 <i class="ri-admin-fill"></i>
             </div>
