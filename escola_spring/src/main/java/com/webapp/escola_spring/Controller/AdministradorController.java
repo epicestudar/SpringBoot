@@ -56,21 +56,31 @@ public String acessoPageInternaAdm() {
 @PostMapping("acesso-adm")
 public String acessoAdm(@RequestParam String cpf, @RequestParam String senha, Model model) {
     try {
-        boolean verificaCpf = ar.existsById(cpf);
-        boolean verificaSenha = ar.findByCpf(cpf).getSenha().equals(senha);
-        String url = "";
-        if (verificaCpf && verificaSenha) {
-            acessoAdm = true;
-            url = "redirect:/interna-adm";
+        Administrador administrador = ar.findByCpf(cpf);
+        if (administrador != null) {
+            boolean verificaSenha = administrador.getSenha().equals(senha);
+            String url = "";
+            if (verificaSenha) {
+                acessoAdm = true;
+                url = "redirect:/interna-adm";
+            } else {
+                System.out.println("Falha ao autenticar adm");
+                model.addAttribute("erro", "Senha incorreta. Por favor, tente novamente.");
+                url = "redirect:/login-adm";
+            }
+           return url;
         } else {
-            model.addAttribute("erro", "Credenciais inválidas. Por favor, tente novamente.");
-            url = "redirect:/login-adm";
+            System.out.println("Falha ao autenticar adm");
+            model.addAttribute("erro", "Usuário não encontrado. Por favor, verifique o CPF.");
+            return "redirect:/login-adm";
         }
-        return url;
     } catch (Exception e) {
+        System.out.println("Erro ao processar o login: " + e.getMessage());
         return "redirect:/login-adm";
     }
 }
+
+
 
 }
 
