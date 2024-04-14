@@ -9,6 +9,9 @@
     text-decoration: none;
     list-style: none;
 }
+.logo{
+    width: 100px;
+}
 .container{
     margin-top: 10%;
 }
