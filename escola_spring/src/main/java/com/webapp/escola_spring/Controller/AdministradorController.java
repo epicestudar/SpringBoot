@@ -7,81 +7,83 @@ import com.webapp.escola_spring.Model.Administrador;
 import com.webapp.escola_spring.Repository.AdministradorRepository;
 import com.webapp.escola_spring.Repository.VerificaCadastroAdmRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
 @Controller
 public class AdministradorController {
 
-@Autowired
-AdministradorRepository ar;
+    @Autowired
+    AdministradorRepository ar;
 
-@Autowired
-VerificaCadastroAdmRepository vcar;
+    @Autowired
+    VerificaCadastroAdmRepository vcar;
 
-boolean acessoAdm = false;
+    boolean acessoAdm = false;
 
-@PostMapping("cadastrar-adm")
-public String cadastrarAdmBD(Administrador adm, Model model) {
-    boolean verificaCpf = vcar.existsById(adm.getCpf());
-    if(verificaCpf) {
-        ar.save(adm);
-        System.out.println("Cadastro realizado com sucesso!");
-        return "/login/login-adm";
-    }
-    else{
-        System.out.println("Falha ao cadastrar o CPF");
-        model.addAttribute("erro", "CPF não encontrado no banco");
-        return "/cadastro/cadastro-adm";
-    }
-
-    
-}
-
-@GetMapping("/interna-adm")
-public String acessoPageInternaAdm() {
-    String vaiPara = "";
-    if (acessoAdm) {
-        vaiPara = "interna/interna-adm";
-    } else{
-        vaiPara = "redirect:/login-adm";
-    }
-    return vaiPara;
-}
-
-@PostMapping("acesso-adm")
-public String acessoAdm(@RequestParam String cpf, @RequestParam String senha, Model model) {
-    try {
-        Administrador administrador = ar.findByCpf(cpf);
-        if (administrador != null) {
-            boolean verificaSenha = administrador.getSenha().equals(senha);
-            String url = "";
-            if (verificaSenha) {
-                acessoAdm = true;
-                url = "redirect:/interna-adm";
-            } else {
-                System.out.println("Falha ao autenticar adm");
-                model.addAttribute("erro", "Senha incorreta. Por favor, tente novamente.");
-                url = "redirect:/login-adm";
-            }
-           return url;
+    @PostMapping("cadastrar-adm")
+    public String cadastrarAdmBD(Administrador adm, Model model) {
+        boolean verificaCpf = vcar.existsById(adm.getCpf());
+        if (verificaCpf) {
+            ar.save(adm);
+            System.out.println("Cadastro realizado com sucesso!");
+            return "/login/login-adm";
         } else {
-            System.out.println("Falha ao autenticar adm");
-            model.addAttribute("erro", "Usuário não encontrado. Por favor, verifique o CPF.");
-            return "redirect:/login-adm";
+            System.out.println("Falha ao cadastrar o CPF");
+            model.addAttribute("erro", "CPF não encontrado no banco");
+            return "/cadastro/cadastro-adm";
         }
-    } catch (Exception e) {
-        System.out.println("Erro ao processar o login: " + e.getMessage());
+
+    }
+
+    @GetMapping("/logout-adm")
+    public String logout(HttpSession session) {
+        // Invalida a sessão
+        session.invalidate();
+        // Redireciona para a página de login
         return "redirect:/login-adm";
     }
+
+    @GetMapping("/interna-adm")
+    public String acessoPageInternaAdm() {
+        String vaiPara = "";
+        if (acessoAdm) {
+            vaiPara = "interna/interna-adm";
+        } else {
+            vaiPara = "redirect:/login-adm";
+        }
+        return vaiPara;
+    }
+
+    @PostMapping("acesso-adm")
+    public String acessoAdm(@RequestParam String cpf, @RequestParam String senha, Model model) {
+        try {
+            Administrador administrador = ar.findByCpf(cpf);
+            if (administrador != null) {
+                boolean verificaSenha = administrador.getSenha().equals(senha);
+                String url = "";
+                if (verificaSenha) {
+                    acessoAdm = true;
+                    url = "redirect:/interna-adm";
+                } else {
+                    System.out.println("Falha ao autenticar adm");
+                    model.addAttribute("erro", "Senha incorreta. Por favor, tente novamente.");
+                    url = "redirect:/login-adm";
+                }
+                return url;
+            } else {
+                System.out.println("Falha ao autenticar adm");
+                model.addAttribute("erro", "Usuário não encontrado. Por favor, verifique o CPF.");
+                return "redirect:/login-adm";
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao processar o login: " + e.getMessage());
+            return "redirect:/login-adm";
+        }
+    }
+
 }
-
-
-
-}
-
-

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.DocenteRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class DocenteController {
     @Autowired
@@ -27,6 +29,14 @@ public class DocenteController {
             model.addAttribute("erro", "Erro ao cadastrar docente");
             return "/cadastro/cadastro-aluno";
         }
+    }
+
+    @GetMapping("/logout-docente")
+    public String logout(HttpSession session) {
+        // Invalida a sessão
+        session.invalidate();
+        // Redireciona para a página de login
+        return "redirect:/login-docente";
     }
 
     @GetMapping("/interna-docente")

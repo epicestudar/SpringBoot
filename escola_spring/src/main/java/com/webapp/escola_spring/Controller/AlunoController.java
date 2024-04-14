@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.webapp.escola_spring.Model.Aluno;
 import com.webapp.escola_spring.Repository.AlunoRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class AlunoController {
     @Autowired
@@ -28,6 +30,14 @@ public class AlunoController {
             model.addAttribute("erro", "Erro ao cadastrar aluno");
             return "/cadastro/cadastro-aluno";
         }
+    }
+
+    @GetMapping("/logout-aluno")
+    public String logout(HttpSession session) {
+        // Invalida a sessão
+        session.invalidate();
+        // Redireciona para a página de login
+        return "redirect:/login-aluno";
     }
 
     @GetMapping("/interna-aluno")
