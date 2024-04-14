@@ -9,28 +9,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.webapp.escola_spring.Model.Aluno;
 import com.webapp.escola_spring.Repository.AlunoRepository;
-import com.webapp.escola_spring.Repository.VerificaCadastroAlunoRepository;
 
 @Controller
 public class AlunoController {
     @Autowired
     AlunoRepository alr;
 
-    @Autowired
-    VerificaCadastroAlunoRepository vlcar;
-
     boolean acessoAluno = false;
 
-    @PostMapping("cadastrar-aluno")
+    @PostMapping("/cadastrar-aluno")
     public String cadastrarAlunoBD(Aluno aluno, Model model) {
-        boolean verificaRa = vlcar.existsById(aluno.getRa());
-        if (verificaRa) {
+        try {
             alr.save(aluno);
             System.out.println("Cadastro realizado com sucesso!");
-            return "/login/login-aluno";
-        } else {
-            System.out.println("Falha ao cadastrar o RA");
-            model.addAttribute("erro", "RA não encontrado no banco");
+            return "/interna/interna-adm";
+        } catch (Exception e) {
+            System.out.println("Erro ao cadastrar aluno: " + e.getMessage());
+            model.addAttribute("erro", "Erro ao cadastrar aluno");
             return "/cadastro/cadastro-aluno";
         }
     }

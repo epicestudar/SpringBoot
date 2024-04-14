@@ -8,29 +8,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.DocenteRepository;
-import com.webapp.escola_spring.Repository.VerificaCadastroDocenteRepository;
 
 @Controller
 public class DocenteController {
     @Autowired
     DocenteRepository alr;
 
-    @Autowired
-    VerificaCadastroDocenteRepository vlcar;
-
     boolean acessoDocente = false;
 
-    @PostMapping("cadastrar-docente")
-    public String cadastrarDocenteBD(Docente docente, Model model) {
-        boolean verificaEmail = vlcar.existsById(docente.getEmailInstitucional());
-        if (verificaEmail) {
+    @PostMapping("/cadastrar-docente")
+    public String cadastrarAlunoBD(Docente docente, Model model) {
+        try {
             alr.save(docente);
             System.out.println("Cadastro realizado com sucesso!");
-            return "/login/login-docente";
-        } else {
-            System.out.println("Falha ao cadastrar o Email");
-            model.addAttribute("erro", "Email não encontrado no banco");
-            return "/cadastro/cadastro-adm";
+            return "/interna/interna-adm";
+        } catch (Exception e) {
+            System.out.println("Erro ao cadastrar docente: " + e.getMessage());
+            model.addAttribute("erro", "Erro ao cadastrar docente");
+            return "/cadastro/cadastro-aluno";
         }
     }
 
