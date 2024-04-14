@@ -1,16 +1,16 @@
 gerenciamento de uma escola
  adm: 
-- acesso global 
-- consegue fazer cadastro de alunos(matricula) 
-- dados do aluno e disciplinas que ele vai fazer 
-- cadastro do professor (atribuir discplinas para o professor) 
-- filtros (listar alunos e docentes)
+- acesso global - FEITO
+- consegue fazer cadastro de alunos(matricula) - FEITO
+- dados do aluno e disciplinas que ele vai fazer - EM ANDAMENTO
+- cadastro do professor (atribuir discplinas para o professor) - FEITO
+- filtros (listar alunos e docentes) - EM ANDAMENTO
 
  aluno: 
-- acesso interno (area do aluno, user/pass) 
-- ver informações das suas disciplinas 
+- acesso interno (area do aluno, user/pass) - FEITO
+- ver informações das suas disciplinas - EM ANDAMENTO
 
  professor: 
-- acesso interno (area do professor, user/pass) 
-- lançar notas para os alunos 
-- listar alunos cadastrados em suas disciplinas 
+- acesso interno (area do professor, user/pass) - FEITO
+- lançar notas para os alunos - EM ANDAMENTO
+- listar alunos cadastrados em suas disciplinas - EM ANDAMENTO

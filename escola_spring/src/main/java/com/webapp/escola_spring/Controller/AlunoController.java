@@ -28,7 +28,7 @@ public class AlunoController {
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar aluno: " + e.getMessage());
             model.addAttribute("erro", "Erro ao cadastrar aluno");
-            return "/cadastro/cadastro-aluno";
+            return "/cadastro/cadastro-aluno_docente";
         }
     }
 
