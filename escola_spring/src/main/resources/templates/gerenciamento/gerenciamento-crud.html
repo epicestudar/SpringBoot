@@ -27,7 +27,7 @@
                     <td th:text="${docente.materia}"></td>
                     <td th:text="${docente.turmas}"></td>
                     <td>
-                        <a href="#" class="btn btn-primary"><i class="fas fa-edit"></i></a> <!-- Botão de editar -->
+                        <a th:href="@{'/edit-docente/' + ${docente.emailInstitucional} }" class="btn btn-primary"><i class="fas fa-edit"></i></a> <!-- Botão de editar -->
                         <a th:href="@{'/delete-docente/' + ${docente.emailInstitucional} }" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i>
                         </a>

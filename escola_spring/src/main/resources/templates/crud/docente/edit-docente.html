@@ -1,11 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Docente</title>
+    <!-- Adicione os estilos CSS necessários -->
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Editar Docente</h1>
+        <form action="/atualizar-docente" method="post">
+            <input type="hidden" name="emailInstitucional" th:value="${emailInstitucional}">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" th:value="${docente.nome}">
+            </div>
+            <div>
+                <label for="materia">Matéria:</label>
+                <input type="text" id="materia" name="materia" th:value="${docente.materia}">
+            </div>
+            <div>
+                <label for="turmas">Turma:</label>
+                <input type="text" id="turmas" name="turmas" th:value="${docente.turmas}">
+            </div>
+            <div>
+                <button type="submit">Salvar Alterações</button>
+            </div>
+        </form>
+        
+    </div>
 </body>
 </html>

@@ -1,16 +1,19 @@
 package com.webapp.escola_spring.Controller;
 
 import java.util.List;
-
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
 import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.DocenteRepository;
 
@@ -95,6 +98,68 @@ public class DocenteController {
             System.out.println("Erro ao excluir professor: " + e.getMessage());
         }
         return "redirect:/gerenciamento"; // Redireciona de volta para a página de listar professores
+    }
+
+    // @RequestMapping(value = "/edit-docente/{emailInstitucional}", method =
+    // RequestMethod.GET)
+    // public ModelAndView editarDocente(@PathVariable("emailInstitucional") String
+    // emailInstitucional) {
+    // ModelAndView mv = new ModelAndView("crud/docente/edit-docente");
+    // mv.addObject("docente", alr.findByEmailInstitucional(emailInstitucional));
+    // return mv;
+    // }
+
+    // @PostMapping("/atualizar-docente")
+    // public String atualizarDocente(@ModelAttribute Docente docente) {
+    // try {
+    // // Verifica se o docente já existe no banco de dados
+    // Optional<Docente> existingDocente =
+    // alr.findById(docente.getEmailInstitucional());
+
+    // if (existingDocente.isPresent()) {
+    // // Atualiza os atributos do docente existente com os valores fornecidos pelo
+    // // formulário
+    // Docente updatedDocente = existingDocente.get();
+    // updatedDocente.setNome(docente.getNome());
+    // updatedDocente.setEmailInstitucional(docente.getEmailInstitucional());
+    // updatedDocente.setMateria(docente.getMateria());
+    // updatedDocente.setTurmas(docente.getTurmas());
+
+    // // Salva o docente atualizado
+    // alr.save(updatedDocente);
+    // System.out.println("Docente atualizado com sucesso!");
+    // } else {
+    // System.out.println("Docente não encontrado para atualização");
+    // }
+    // } catch (Exception e) {
+    // System.out.println("Erro ao atualizar docente: " + e.getMessage());
+    // }
+    // return "redirect:/gerenciamento"; // Redireciona de volta para a página de
+    // listar professores
+    // }
+
+    @RequestMapping(value = "/edit-docente/{emailInstitucional}", method = RequestMethod.GET)
+    public ModelAndView editarDocente(@PathVariable("emailInstitucional") String emailInstitucional) {
+        ModelAndView mv = new ModelAndView("crud/docente/edit-docente");
+        Docente docente = alr.findByEmailInstitucional(emailInstitucional);
+        mv.addObject("emailInstitucional", emailInstitucional);
+        mv.addObject("docente", docente);
+        return mv;
+    }
+
+    @PostMapping("/atualizar-docente")
+    public String atualizarDocente(@RequestParam("emailInstitucional") String emailInstitucional, Docente docente) {
+        Docente docenteExistente = alr.findByEmailInstitucional(emailInstitucional);
+        if (docenteExistente != null) {
+            docenteExistente.setNome(docente.getNome());
+            docenteExistente.setMateria(docente.getMateria());
+            docenteExistente.setTurmas(docente.getTurmas());
+            alr.save(docenteExistente);
+            return "redirect:/gerenciamento";
+        } else {
+            // Handle the case where the professor does not exist
+            return "redirect:/gerenciamento";
+        }
     }
 
 }
