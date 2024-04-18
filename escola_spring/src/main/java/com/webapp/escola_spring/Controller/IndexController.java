@@ -41,4 +41,8 @@ public class IndexController {
     public String acessoPageContato() {
         return "contato/contato";
     }
+    // @GetMapping("/gerenciamento")
+    // public String acessoPageGerenciamento() {
+    //     return "gerenciamento/gerenciamento-crud";
+    // }
 }

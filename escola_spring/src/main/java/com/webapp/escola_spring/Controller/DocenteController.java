@@ -1,5 +1,7 @@
 package com.webapp.escola_spring.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,5 +69,12 @@ public class DocenteController {
         } catch (Exception e) {
             return "redirect:/login-docente";
         }
+    }
+
+    @GetMapping("/gerenciamento")
+    public String listarDocentes(Model model) {
+        List<Docente> docentes = (List<Docente>) alr.findAll();
+        model.addAttribute("docentes", docentes);
+        return "gerenciamento/gerenciamento-crud"; // Nome da sua página HTML para listar docentes
     }
 }
