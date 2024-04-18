@@ -36,5 +36,33 @@
             </tbody>
         </table>
     </div>
+
+    <div class="container mt-5">
+        <h1>Lista de Alunos</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>RA</th>
+                    <th>Nome</th>
+                    <th>Curso</th>
+                    <th>Período</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <td th:text="${aluno.ra}"></td>
+                    <td th:text="${aluno.nome}"></td>
+                    <td th:text="${aluno.curso}"></td>
+                    <td th:text="${aluno.periodo}"></td>
+                    <td>
+                        <a th:href="@{'/edit-aluno/' + ${aluno.ra} }" class="btn btn-primary"><i class="fas fa-edit"></i></a> <!-- Botão de editar -->
+                        <a th:href="@{'/delete-aluno/' + ${aluno.ra} }" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
