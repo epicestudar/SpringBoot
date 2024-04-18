@@ -13,7 +13,7 @@ public class MateriasController {
     @Autowired
     private MateriasRepository mr;
 
-    @RequestMapping(value = "/cadastrar-docente", method = RequestMethod.GET)
+    @RequestMapping(value = "/cadastro-aluno_docente", method = RequestMethod.GET)
     public ModelAndView listarMateria() {
         ModelAndView mv = new ModelAndView("cadastro/cadastro-aluno_docente");
         mv.addObject("materias", mr.findAll());

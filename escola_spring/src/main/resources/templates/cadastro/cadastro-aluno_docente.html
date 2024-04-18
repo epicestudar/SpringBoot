@@ -49,7 +49,11 @@
                     <span>ou use seu email para se registrar</span>
                     <input type="text" placeholder="Nome do Docente" name="nome">
                     <input type="email" placeholder="Email do Docente" name="emailInstitucional">
-                    <input type="text" placeholder="Disciplinas do Docente" name="disciplinas">
+                    <label for="materiaSelect">Matéria:</label>
+                    <select id="materiaSelect" name="materia">
+                        <option th:each="materia : ${materias}" th:value="${materia.nome}"
+                                th:text="${materia.nome}"></option>
+                    </select>
                     <input type="text" placeholder="Turmas do Docente" name="turmas">
                     <input type="password" placeholder="Senha">
                     <input type="password" placeholder="Confirmar Senha" name="senha">

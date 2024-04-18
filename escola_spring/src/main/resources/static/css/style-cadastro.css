@@ -187,3 +187,7 @@ body {
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+select {
+    height: 30px;
+    width: 20px;
+}

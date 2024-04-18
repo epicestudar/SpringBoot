@@ -28,10 +28,10 @@ public class IndexController {
     public String acessoPageLoginDocente() {
         return "login/login-docente";
     }
-    @GetMapping("/cadastro-aluno_docente")
-    public String acessoPageCadastroAluno() {
-        return "cadastro/cadastro-aluno_docente";
-    }
+    // @GetMapping("/cadastro-aluno_docente")
+    // public String acessoPageCadastroAluno() {
+    //     return "cadastro/cadastro-aluno_docente";
+    // }
 
     @GetMapping("/cursos")
     public String acessoPageCursos() {
