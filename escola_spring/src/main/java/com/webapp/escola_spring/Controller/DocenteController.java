@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.DocenteRepository;
@@ -77,4 +80,21 @@ public class DocenteController {
         model.addAttribute("docentes", docentes);
         return "gerenciamento/gerenciamento-crud"; // Nome da sua página HTML para listar docentes
     }
+
+    @RequestMapping(value = "/delete-docente/{email}", method = RequestMethod.GET)
+    public String excluirProfessor(@PathVariable("email") String email) {
+        try {
+            Docente docente = alr.findByEmailInstitucional(email);
+            if (docente != null) {
+                alr.delete(docente);
+                System.out.println("Professor excluído com sucesso!");
+            } else {
+                System.out.println("Professor não encontrado para exclusão");
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao excluir professor: " + e.getMessage());
+        }
+        return "redirect:/gerenciamento"; // Redireciona de volta para a página de listar professores
+    }
+
 }
