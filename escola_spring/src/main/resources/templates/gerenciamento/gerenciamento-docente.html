@@ -10,6 +10,7 @@
 </head>
 <body>
     <div class="container mt-5">
+        <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
         <h1>Lista de Professores</h1>
         <table class="table">
             <thead>
@@ -36,5 +37,6 @@
             </tbody>
         </table>
     </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>  
 </body>
 </html>

@@ -2,9 +2,9 @@ gerenciamento de uma escola
  adm: 
 - acesso global - FEITO
 - consegue fazer cadastro de alunos(matricula) - FEITO
-- dados do aluno e disciplinas que ele vai fazer - EM ANDAMENTO
+- dados do aluno e disciplinas que ele vai fazer - FEITO
 - cadastro do professor (atribuir discplinas para o professor) - FEITO
-- filtros (listar alunos e docentes) - EM ANDAMENTO
+- filtros (listar alunos e docentes) - FEITO
 
  aluno: 
 - acesso interno (area do aluno, user/pass) - FEITO

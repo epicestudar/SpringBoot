@@ -6,7 +6,9 @@
     <title>Página Interna do Docente</title>
 </head>
 <body>
+    <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
     <h1>Docente autenticado com sucesso</h1>
     <a href="/logout-docente"><button>Logout</button></a>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>  
 </body>
 </html>
