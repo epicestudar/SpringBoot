@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gerenciamento de Alunos</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    
+    <div class="container mt-5">
+        <h1>Lista de Alunos</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>RA</th>
+                    <th>Nome</th>
+                    <th>Curso</th>
+                    <th>Período</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <td th:text="${aluno.ra}"></td>
+                    <td th:text="${aluno.nome}"></td>
+                    <td th:text="${aluno.curso}"></td>
+                    <td th:text="${aluno.periodo}"></td>
+                    <td>
+                        <a th:href="@{'/edit-aluno/' + ${aluno.ra} }" class="btn btn-primary"><i class="fas fa-edit"></i></a> <!-- Botão de editar -->
+                        <a th:href="@{'/delete-aluno/' + ${aluno.ra} }" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

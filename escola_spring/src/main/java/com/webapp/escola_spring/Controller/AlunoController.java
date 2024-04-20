@@ -76,11 +76,11 @@ public class AlunoController {
         }
     }
 
-    // @GetMapping("/gerenciamento")
+    @GetMapping("/gerenciamento-aluno")
     public String listarAlunos(Model model) {
         List<Aluno> alunos = (List<Aluno>) alr.findAll();
         model.addAttribute("alunos", alunos);
-        return "gerenciamento/gerenciamento-crud"; // Nome da sua página HTML para listar docentes
+        return "gerenciamento/gerenciamento-aluno"; // Nome da sua página HTML para listar docentes
     }
 
     @RequestMapping(value = "/delete-aluno/{ra}", method = RequestMethod.GET)
@@ -96,7 +96,7 @@ public class AlunoController {
         } catch (Exception e) {
             System.out.println("Erro ao excluir Aluno: " + e.getMessage());
         }
-        return "redirect:/gerenciamento"; // Redireciona de volta para a página de listar professores
+        return "redirect:/gerenciamento-aluno"; // Redireciona de volta para a página de listar professores
     }
 
     @RequestMapping(value = "/edit-aluno/{ra}", method = RequestMethod.GET)
@@ -116,10 +116,10 @@ public class AlunoController {
             alunoExistente.setCurso(aluno.getCurso());
             alunoExistente.setPeriodo(aluno.getPeriodo());
             alr.save(alunoExistente);
-            return "redirect:/gerenciamento";
+            return "redirect:/gerenciamento-aluno";
         } else {
             // Handle the case where the professor does not exist
-            return "redirect:/gerenciamento";
+            return "redirect:/gerenciamento-aluno";
         }
     }
 

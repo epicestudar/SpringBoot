@@ -6,6 +6,27 @@
     <title>Editar Aluno</title>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Editar Aluno</h1>
+        <form action="/atualizar-aluno" method="post">
+            <input type="hidden" name="ra" th:value="${ra}">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" th:value="${aluno.nome}">
+            </div>
+            <div>
+                <label for="curso">Curso:</label>
+                <input type="text" id="curso" name="curso" th:value="${aluno.curso}">
+            </div>
+            <div>
+                <label for="periodo">Periodo:</label>
+                <input type="text" id="periodo" name="periodo" th:value="${aluno.periodo}">
+            </div>
+            <div>
+                <button type="submit">Salvar Alterações</button>
+            </div>
+        </form>
+        
+    </div>
 </body>
 </html>
