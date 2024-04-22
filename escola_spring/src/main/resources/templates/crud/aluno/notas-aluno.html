@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Aluno</title>
+</head>
+
+<body>
+    <h2>Página do Aluno</h2>
+
+    <h3>Nome: <span th:text="${aluno.nome}"></span></h3>
+    <h3>RA: <span th:text="${aluno.ra}"></span></h3>
+
+    <h4>Notas:</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Matéria</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nota : ${aluno.notas}">
+                <td th:text="${nota.materia.materia}"></td>
+                <td th:text="${nota.nota}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

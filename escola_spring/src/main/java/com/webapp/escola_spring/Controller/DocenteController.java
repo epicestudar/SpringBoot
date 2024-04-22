@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.webapp.escola_spring.Model.Docente;
+import com.webapp.escola_spring.Repository.AlunoRepository;
 import com.webapp.escola_spring.Repository.DocenteRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -21,6 +22,9 @@ import jakarta.servlet.http.HttpSession;
 public class DocenteController {
     @Autowired
     DocenteRepository alr;
+
+    @Autowired
+    private AlunoRepository ar;
 
     boolean acessoDocente = false;
 
@@ -55,6 +59,21 @@ public class DocenteController {
         }
         return vaiPara;
     }
+
+    // @PostMapping("acesso-docente")
+    // public String acessoDocente(@RequestParam String email, @RequestParam String senha, HttpSession session) {
+    //     try {
+    //         Docente docente = alr.findByEmailInstitucional(email);
+    //         if (docente != null && docente.getSenha().equals(senha)) {
+    //             session.setAttribute("docente", docente);
+    //             return "redirect:/interna-docente";
+    //         } else {
+    //             return "redirect:/login-docente";
+    //         }
+    //     } catch (Exception e) {
+    //         return "redirect:/login-docente";
+    //     }
+    // }
 
     @PostMapping("acesso-docente")
     public String acessoAluno(@RequestParam String email, @RequestParam String senha) {
@@ -158,6 +177,22 @@ public class DocenteController {
             // Handle the case where the professor does not exist
             return "redirect:/gerenciamento-docente";
         }
+    }
+
+    @GetMapping("/lancamento")
+    public ModelAndView lancarNotas(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView("interna/interna-docente");
+        Docente docente = (Docente) session.getAttribute("docente");
+        if (docente != null) {
+
+            modelAndView.addObject("docente", docente);
+            modelAndView.addObject("alunos", ar.findAll());
+
+        } else {
+            // Redirecionar para a página de login se o professor não estiver logado
+            modelAndView.setViewName("redirect:/login-docente");
+        }
+        return modelAndView;
     }
 
 }

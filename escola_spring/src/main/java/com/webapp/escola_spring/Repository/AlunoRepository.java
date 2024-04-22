@@ -6,4 +6,5 @@ import com.webapp.escola_spring.Model.Aluno;
 
 public interface AlunoRepository extends CrudRepository<Aluno, String>{
     Aluno findByRa(String ra);
+    Aluno findByNome(String nomeAluno);
 }

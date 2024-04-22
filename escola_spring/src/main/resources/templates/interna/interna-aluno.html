@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Interna do Aluno</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/style-interna_aluno.css}">
 </head>
 <body>
     <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
+    <div class="container">
     <h1>Aluno autenticado com sucesso</h1>
     <a href="/logout-aluno"><button>Logout</button></a>
+    <a href=""><button>Suas Notas</button></a>
+    </div>
     <div th:insert="~{fragmentos/footer :: footer}"></div>  
 </body>
 </html>
