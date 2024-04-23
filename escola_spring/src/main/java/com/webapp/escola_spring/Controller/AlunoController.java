@@ -114,7 +114,7 @@ public class AlunoController {
         if (alunoExistente != null) {
             alunoExistente.setNome(aluno.getNome());
             alunoExistente.setCurso(aluno.getCurso());
-            alunoExistente.setPeriodo(aluno.getPeriodo());
+            alunoExistente.setMateria(aluno.getMateria());
             alr.save(alunoExistente);
             return "redirect:/gerenciamento-aluno";
         } else {

@@ -5,6 +5,8 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -14,10 +16,36 @@ public class Aluno implements Serializable {
     private String ra;
     private String nome;
     private String curso;
-    private String disciplinas;
-    private String periodo;
+    @ManyToOne
+    @JoinColumn(name = "id_materias", referencedColumnName = "idMateria")
+    private Materias materias;
+    private String materia;
     @OneToMany(mappedBy = "nomeAluno")
     private List<LancarNotas> notas;
+
+    public Materias getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(Materias materias) {
+        this.materias = materias;
+    }
+
+    public String getMateria() {
+        return materia;
+    }
+
+    public void setMateria(String materia) {
+        this.materia = materia;
+    }
+
+    public List<LancarNotas> getNotas() {
+        return notas;
+    }
+
+    public void setNotas(List<LancarNotas> notas) {
+        this.notas = notas;
+    }
 
     public String getTurma() {
         return turma;
@@ -52,22 +80,6 @@ public class Aluno implements Serializable {
 
     public void setCurso(String curso) {
         this.curso = curso;
-    }
-
-    public String getDisciplinas() {
-        return disciplinas;
-    }
-
-    public void setDisciplinas(String disciplinas) {
-        this.disciplinas = disciplinas;
-    }
-
-    public String getPeriodo() {
-        return periodo;
-    }
-
-    public void setPeriodo(String periodo) {
-        this.periodo = periodo;
     }
 
     public String getSenha() {
