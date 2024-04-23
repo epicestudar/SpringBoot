@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
    <div class="container">
     <h1>Docente autenticado com sucesso</h1>
     <a href="/logout-docente"><button>Logout</button></a>
-    <a href="/lancando-nota"><button>Lançamento de Notas</button></a>
+    <a href="/lancamento"><button>Lançamento de Notas</button></a>
    </div>
     <div th:insert="~{fragmentos/footer :: footer}"></div>  
 </body>

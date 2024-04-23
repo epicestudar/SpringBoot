@@ -61,18 +61,19 @@ public class DocenteController {
     }
 
     // @PostMapping("acesso-docente")
-    // public String acessoDocente(@RequestParam String email, @RequestParam String senha, HttpSession session) {
-    //     try {
-    //         Docente docente = alr.findByEmailInstitucional(email);
-    //         if (docente != null && docente.getSenha().equals(senha)) {
-    //             session.setAttribute("docente", docente);
-    //             return "redirect:/interna-docente";
-    //         } else {
-    //             return "redirect:/login-docente";
-    //         }
-    //     } catch (Exception e) {
-    //         return "redirect:/login-docente";
-    //     }
+    // public String acessoDocente(@RequestParam String email, @RequestParam String
+    // senha, HttpSession session) {
+    // try {
+    // Docente docente = alr.findByEmailInstitucional(email);
+    // if (docente != null && docente.getSenha().equals(senha)) {
+    // session.setAttribute("docente", docente);
+    // return "redirect:/interna-docente";
+    // } else {
+    // return "redirect:/login-docente";
+    // }
+    // } catch (Exception e) {
+    // return "redirect:/login-docente";
+    // }
     // }
 
     @PostMapping("acesso-docente")
@@ -179,20 +180,19 @@ public class DocenteController {
         }
     }
 
-    @GetMapping("/lancamento")
-    public ModelAndView lancarNotas(HttpSession session) {
-        ModelAndView modelAndView = new ModelAndView("interna/interna-docente");
-        Docente docente = (Docente) session.getAttribute("docente");
-        if (docente != null) {
+    // @GetMapping("/lancamento")
+    // public ModelAndView lancarNotas(HttpSession session) {
+    // ModelAndView modelAndView = new ModelAndView("interna/interna-docente");
+    // Docente docente = (Docente) session.getAttribute("docente");
+    // if (docente != null) {
 
-            modelAndView.addObject("docente", docente);
-            modelAndView.addObject("alunos", ar.findAll());
+    // modelAndView.addObject("docente", docente);
+    // modelAndView.addObject("alunos", ar.findAll());
 
-        } else {
-            // Redirecionar para a página de login se o professor não estiver logado
-            modelAndView.setViewName("redirect:/login-docente");
-        }
-        return modelAndView;
-    }
-
+    // } else {
+    // // Redirecionar para a página de login se o professor não estiver logado
+    // modelAndView.setViewName("redirect:/login-docente");
+    // }
+    // return modelAndView;
+    // }
 }

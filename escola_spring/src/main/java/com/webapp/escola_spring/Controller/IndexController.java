@@ -1,7 +1,10 @@
 package com.webapp.escola_spring.Controller;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import ch.qos.logback.classic.Logger;
 
 
 @Controller
@@ -41,8 +44,9 @@ public class IndexController {
     public String acessoPageContato() {
         return "contato/contato";
     }
-    // @GetMapping("/gerenciamento")
-    // public String acessoPageGerenciamento() {
-    //     return "gerenciamento/gerenciamento-crud";
-    // }
+
+    @GetMapping("/lancamento")
+    public String acessoPageNotas() {
+        return "notas/lancamento";
+    }
 }
