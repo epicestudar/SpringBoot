@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
+import jakarta.servlet.http.HttpSession;
 import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.AlunoRepository;
 import com.webapp.escola_spring.Repository.DocenteRepository;
@@ -22,6 +22,9 @@ import jakarta.servlet.http.HttpSession;
 public class DocenteController {
     @Autowired
     DocenteRepository alr;
+
+    @Autowired
+    private HttpSession httpSession;
 
     @Autowired
     private AlunoRepository ar;
@@ -84,6 +87,9 @@ public class DocenteController {
             boolean verificaSenha = alr.findByEmailInstitucional(email).getSenha().equals(senha);
             String url = "";
             if (verificaEmail && verificaSenha) {
+                Docente docente = alr.findByEmailInstitucional(email);
+                httpSession.setAttribute("docente", docente);
+                httpSession.setAttribute("loggedin", true);
                 acessoDocente = true;
                 url = "redirect:/interna-docente";
             } else {
@@ -195,4 +201,12 @@ public class DocenteController {
     // }
     // return modelAndView;
     // }
+    @GetMapping("/filtrando")
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+    @GetMapping("/filtrando")
+    public String filtrandoAlunos() {
+        return "crud/aluno/filtrando-alunos";
+    }
 }
