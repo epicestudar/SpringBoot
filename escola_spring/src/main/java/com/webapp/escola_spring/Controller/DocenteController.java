@@ -201,12 +201,45 @@ public class DocenteController {
     // }
     // return modelAndView;
     // }
-    @GetMapping("/filtrando")
-    public String getMethodName(@RequestParam String param) {
-        return new String();
+    // @GetMapping("/filtrando")
+    // public String getMethodName(@RequestParam String param) {
+    //     return new String();
+    // }
+    // @GetMapping("/filtrando")
+    // public String filtrandoAlunos() {
+    //     return "crud/aluno/filtrando-alunos";
+    // }
+    @GetMapping("/filtro")
+    public ModelAndView lancarNotas(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView("crud/aluno/filtro-alunos");
+        Docente docente = (Docente) session.getAttribute("docente");
+        if (docente != null) {
+           
+        
+        modelAndView.addObject("docente", docente);
+        modelAndView.addObject("alunos", ar.findAll());
+            
+        } else {
+            // Redirecionar para a página de login se o professor não estiver logado
+            modelAndView.setViewName("redirect:/login-docente");
+        }
+        return modelAndView;
     }
-    @GetMapping("/filtrando")
-    public String filtrandoAlunos() {
-        return "crud/aluno/filtrando-alunos";
+
+    @GetMapping("/dados")
+    public ModelAndView dadosDocente(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView("crud/docente/dados-docente");
+        Docente docente = (Docente) session.getAttribute("docente");
+        if (docente != null) {
+           
+        
+        modelAndView.addObject("docente", docente);
+        modelAndView.addObject("alunos", ar.findAll());
+            
+        } else {
+            // Redirecionar para a página de login se o professor não estiver logado
+            modelAndView.setViewName("redirect:/login-docente");
+        }
+        return modelAndView;
     }
 }

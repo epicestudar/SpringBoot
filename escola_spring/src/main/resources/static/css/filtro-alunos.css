@@ -1,0 +1,39 @@
+h1{
+    text-align: center;
+    margin-top: 10%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.center-table {
+    border-collapse: collapse;
+}
+
+.center-table th,
+.center-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.center-table th {
+    background-color: #f2f2f2;
+}
+
+.btn-cell {
+    text-align: center;
+}
+
+.btn-excluir {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-excluir:hover {
+    background-color: #f2f2f2;
+}

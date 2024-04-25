@@ -123,25 +123,34 @@ public class AlunoController {
         }
     }
 
-    @GetMapping("/filtro-aluno")
-    public ModelAndView filtroAluno() {
-        ModelAndView mv = new ModelAndView("aluno/filtrando-alunos");
-        mv.addObject("alunos", alr.findAll());
+    // @GetMapping("/filtro-aluno")
+    // public ModelAndView filtroAluno() {
+    // ModelAndView mv = new ModelAndView("aluno/filtrando-alunos");
+    // mv.addObject("alunos", alr.findAll());
+    // return mv;
+    // }
+
+
+
+    @GetMapping("/interna-aluno/{ra}")
+    public ModelAndView paginaAluno(@PathVariable("ra") String ra) {
+        ModelAndView mv = new ModelAndView("interna/interna-aluno");
+        Aluno aluno = alr.findByRa(ra);
+
+        if (aluno != null) {
+            mv.addObject("aluno", aluno);
+        } else {
+            // Lógica para lidar com aluno não encontrado
+        }
+
         return mv;
     }
 
-    @GetMapping("/interna-aluno/{ra}")
-public ModelAndView paginaAluno(@PathVariable("ra") String ra) {
-    ModelAndView mv = new ModelAndView("interna/interna-aluno");
-    Aluno aluno = alr.findByRa(ra);
-
-    if (aluno != null) {
-        mv.addObject("aluno", aluno);
-    } else {
-        // Lógica para lidar com aluno não encontrado
-    }
-
-    return mv;
-}
+    // @GetMapping("/aluno-filtrado")
+    // public ModelAndView filtroAluno() {
+    //     ModelAndView mv = new ModelAndView("fragmentos/aluno-filtrado");
+    //     mv.addObject("alunos", alr.findAll());
+    //     return mv;
+    // }
 
 }

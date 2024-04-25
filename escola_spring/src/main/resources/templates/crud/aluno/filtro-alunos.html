@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/filtro-alunos.css}">
+</head>
+<body>
+    <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
+    <h1>Alunos da sua Matéria</h1>
+    <div class="container">
+        <table class="center-table">
+            <thead>
+                <tr>
+                    <th>Ra</th>
+                    <th>Nome</th>
+                    <th>Turma</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <th:block th:if="${aluno.turma == docente.turmas}">
+                        <td th:text="${aluno.ra}"></td>
+                        <td th:text="${aluno.nome}"></td>
+                        <td th:text="${aluno.turma}"></td>
+                        <td class="btn-cell">
+                            <a th:href="@{'/lancamento/' + ${aluno.ra} }" class="btn-excluir">
+                                <i class="fas fa-trash-alt"></i> Lançar
+                            </a>
+                        </td>
+                    </th:block>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>  
+    
+</body>
+</html>
