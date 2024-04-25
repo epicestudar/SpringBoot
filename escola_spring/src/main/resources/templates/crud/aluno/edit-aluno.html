@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Aluno</title>
 </head>
+
 <body>
     <div th:insert="~{fragmentos/header :: header}"></div>
     <div class="container">
@@ -19,16 +21,21 @@
                 <label for="curso">Curso:</label>
                 <input type="text" id="curso" name="curso" th:value="${aluno.curso}">
             </div>
-            <div>
-                <label for="periodo">Periodo:</label>
-                <input type="text" id="periodo" name="periodo" th:value="${aluno.periodo}">
+            <!-- <label for="materiaSelect">Matéria:</label>
+            <select id="materiaSelect" name="materia">
+                <option th:each="materia : ${materias}" th:value="${materia.nome}" th:text="${materia.nome}"></option>
+            </select> -->
+            <div> <br><br><br><br><br>
+                <label for="turma">Turma:</label>
+                <input type="text" id="turma" name="turma" th:value="${aluno.turma}">
             </div>
             <div>
                 <button type="submit">Salvar Alterações</button>
             </div>
         </form>
-        
+
     </div>
-    <div th:insert="~{fragmentos/footer :: footer}"></div>  
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
 </body>
+
 </html>

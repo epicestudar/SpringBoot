@@ -12,7 +12,7 @@
     <div class="container">
     <h1>Aluno autenticado com sucesso</h1>
     <a href="/logout-aluno"><button>Logout</button></a>
-    <a href=""><button>Suas Notas</button></a>
+    <a th:href="@{'/notas-aluno?ra=' + ${ra_do_aluno} }">Ver Notas</a>
     <a href="/dados-aluno"><button>Seus Dados</button></a>
     <a href="/filtro-docentes"><button>Seus Docentes</button></a>
     </div>
