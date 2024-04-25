@@ -27,9 +27,9 @@
                         <td th:text="${aluno.nome}"></td>
                         <td th:text="${aluno.turma}"></td>
                         <td class="btn-cell">
-                            <a th:href="@{'/lancamento?ra=' + ${aluno.ra} }" class="btn-excluir">
+                            <a th:href="@{'/lancamento-nota?ra=' + ${aluno.ra} }" class="btn-excluir">
                                 <i class="fas fa-trash-alt"></i> Lançar
-                            </a>                            
+                            </a>                                                    
                         </td>
                     </th:block>
                 </tr>
