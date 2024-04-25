@@ -31,39 +31,4 @@ public class LancarNotasController {
 
     @Autowired
     private LancarNotasRepository lancarNotasRepository;
-
-    // public ModelAndView lancarNotas(HttpSession session) {
-    //     ModelAndView modelAndView = new ModelAndView("crud/docente/lancamento");
-    //     Docente docente = (Docente) session.getAttribute("docente");
-
-    //     if (docente != null) {
-    //         List<Aluno> alunos = alunoRepository.findByMaterias(docente.getMaterias());
-    //         modelAndView.addObject("alunos", alunos);
-            
-    //     } else {
-    //         // modelAndView.setViewName("redirect:/login-docente");
-    //     }
-
-    //     return modelAndView;
-    // }
-
-    // @PostMapping("/lancamento")
-    // public String lancarNotas(@RequestParam("ra") String ra, @RequestParam("nota") double nota) {
-    //     try {
-    //         Aluno aluno = alunoRepository.findByRa(ra);
-    //         if (aluno != null) {
-    //             LancarNotas lancarNotas = new LancarNotas();
-    //             lancarNotas.setNomeAluno(aluno);
-    //             lancarNotas.setNota(nota);
-    //             lancarNotasRepository.save(lancarNotas);
-    //             return "redirect:/lancamento";
-    //         } else {
-    //             // Trate o caso em que o aluno não é encontrado
-    //             return "redirect:/lancamento";
-    //         }
-    //     } catch (Exception e) {
-    //         // Trate qualquer exceção que possa ocorrer
-    //         return "redirect:/lancamento";
-    //     }
-    // }
 }

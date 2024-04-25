@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.webapp.escola_spring.Model.Aluno;
+import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.AlunoRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -22,6 +23,12 @@ import jakarta.servlet.http.HttpSession;
 public class AlunoController {
     @Autowired
     AlunoRepository alr;
+
+    @Autowired
+    private HttpSession httpSession;
+
+
+    Aluno aluno;
 
     boolean acessoAluno = false;
 
@@ -65,6 +72,8 @@ public class AlunoController {
             boolean verificaSenha = alr.findByRa(ra).getSenha().equals(senha);
             String url = "";
             if (verificaRa && verificaSenha) {
+                httpSession.setAttribute("aluno", aluno);
+                httpSession.setAttribute("loggedin", true);
                 acessoAluno = true;
                 url = "redirect:/interna-aluno";
             } else {
@@ -130,8 +139,6 @@ public class AlunoController {
     // return mv;
     // }
 
-
-
     @GetMapping("/interna-aluno/{ra}")
     public ModelAndView paginaAluno(@PathVariable("ra") String ra) {
         ModelAndView mv = new ModelAndView("interna/interna-aluno");
@@ -148,9 +155,24 @@ public class AlunoController {
 
     // @GetMapping("/aluno-filtrado")
     // public ModelAndView filtroAluno() {
-    //     ModelAndView mv = new ModelAndView("fragmentos/aluno-filtrado");
-    //     mv.addObject("alunos", alr.findAll());
-    //     return mv;
+    // ModelAndView mv = new ModelAndView("fragmentos/aluno-filtrado");
+    // mv.addObject("alunos", alr.findAll());
+    // return mv;
+    // }
+
+    // @GetMapping("/dados-aluno")
+    // public ModelAndView dadosAluno(HttpSession session) {
+    // ModelAndView modelAndView = new ModelAndView("crud/aluno/dados-aluno");
+    // Aluno aluno = (Aluno) session.getAttribute("aluno");
+    // if (aluno != null) {
+    // modelAndView.addObject("aluno", alr.findAll());
+    // modelAndView.addObject("aluno", aluno);
+
+    // } else {
+    // // Redirecionar para a página de login se o professor não estiver logado
+    // // modelAndView.setViewName("redirect:/login-aluno");
+    // }
+    // return modelAndView;
     // }
 
 }

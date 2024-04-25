@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.webapp.escola_spring.Model.Administrador;
-import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.AdministradorRepository;
 import com.webapp.escola_spring.Repository.VerificaCadastroAdmRepository;
 

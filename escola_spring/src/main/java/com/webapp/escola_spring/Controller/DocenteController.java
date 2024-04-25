@@ -16,8 +16,6 @@ import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.AlunoRepository;
 import com.webapp.escola_spring.Repository.DocenteRepository;
 
-import jakarta.servlet.http.HttpSession;
-
 @Controller
 public class DocenteController {
     @Autowired
@@ -124,44 +122,6 @@ public class DocenteController {
         return "redirect:/gerenciamento-docente"; // Redireciona de volta para a página de listar professores
     }
 
-    // @RequestMapping(value = "/edit-docente/{emailInstitucional}", method =
-    // RequestMethod.GET)
-    // public ModelAndView editarDocente(@PathVariable("emailInstitucional") String
-    // emailInstitucional) {
-    // ModelAndView mv = new ModelAndView("crud/docente/edit-docente");
-    // mv.addObject("docente", alr.findByEmailInstitucional(emailInstitucional));
-    // return mv;
-    // }
-
-    // @PostMapping("/atualizar-docente")
-    // public String atualizarDocente(@ModelAttribute Docente docente) {
-    // try {
-    // // Verifica se o docente já existe no banco de dados
-    // Optional<Docente> existingDocente =
-    // alr.findById(docente.getEmailInstitucional());
-
-    // if (existingDocente.isPresent()) {
-    // // Atualiza os atributos do docente existente com os valores fornecidos pelo
-    // // formulário
-    // Docente updatedDocente = existingDocente.get();
-    // updatedDocente.setNome(docente.getNome());
-    // updatedDocente.setEmailInstitucional(docente.getEmailInstitucional());
-    // updatedDocente.setMateria(docente.getMateria());
-    // updatedDocente.setTurmas(docente.getTurmas());
-
-    // // Salva o docente atualizado
-    // alr.save(updatedDocente);
-    // System.out.println("Docente atualizado com sucesso!");
-    // } else {
-    // System.out.println("Docente não encontrado para atualização");
-    // }
-    // } catch (Exception e) {
-    // System.out.println("Erro ao atualizar docente: " + e.getMessage());
-    // }
-    // return "redirect:/gerenciamento"; // Redireciona de volta para a página de
-    // listar professores
-    // }
-
     @RequestMapping(value = "/edit-docente/{emailInstitucional}", method = RequestMethod.GET)
     public ModelAndView editarDocente(@PathVariable("emailInstitucional") String emailInstitucional) {
         ModelAndView mv = new ModelAndView("crud/docente/edit-docente");
@@ -185,30 +145,6 @@ public class DocenteController {
             return "redirect:/gerenciamento-docente";
         }
     }
-
-    // @GetMapping("/lancamento")
-    // public ModelAndView lancarNotas(HttpSession session) {
-    // ModelAndView modelAndView = new ModelAndView("interna/interna-docente");
-    // Docente docente = (Docente) session.getAttribute("docente");
-    // if (docente != null) {
-
-    // modelAndView.addObject("docente", docente);
-    // modelAndView.addObject("alunos", ar.findAll());
-
-    // } else {
-    // // Redirecionar para a página de login se o professor não estiver logado
-    // modelAndView.setViewName("redirect:/login-docente");
-    // }
-    // return modelAndView;
-    // }
-    // @GetMapping("/filtrando")
-    // public String getMethodName(@RequestParam String param) {
-    //     return new String();
-    // }
-    // @GetMapping("/filtrando")
-    // public String filtrandoAlunos() {
-    //     return "crud/aluno/filtrando-alunos";
-    // }
     @GetMapping("/filtro")
     public ModelAndView lancarNotas(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("crud/aluno/filtro-alunos");
