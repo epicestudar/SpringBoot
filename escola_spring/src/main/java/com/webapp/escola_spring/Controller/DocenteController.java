@@ -145,7 +145,7 @@ public class DocenteController {
             return "redirect:/gerenciamento-docente";
         }
     }
-    @GetMapping("/filtro")
+    @GetMapping("/filtro-alunos")
     public ModelAndView lancarNotas(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("crud/aluno/filtro-alunos");
         Docente docente = (Docente) session.getAttribute("docente");

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.webapp.escola_spring.Model.Aluno;
 import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.AlunoRepository;
+import com.webapp.escola_spring.Repository.DocenteRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -23,6 +24,9 @@ import jakarta.servlet.http.HttpSession;
 public class AlunoController {
     @Autowired
     AlunoRepository alr;
+
+    @Autowired
+    DocenteRepository ar;
 
     @Autowired
     private HttpSession httpSession;
@@ -151,12 +155,22 @@ public class AlunoController {
         return mv;
     }
 
-    // @GetMapping("/aluno-filtrado")
-    // public ModelAndView filtroAluno() {
-    // ModelAndView mv = new ModelAndView("fragmentos/aluno-filtrado");
-    // mv.addObject("alunos", alr.findAll());
-    // return mv;
-    // }
+    @GetMapping("/filtro-docentes")
+    public ModelAndView filtrarDocentes(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView("crud/docente/filtro-docentes");
+        Aluno aluno = (Aluno) session.getAttribute("aluno");
+        if (aluno != null) {
+           
+        
+        modelAndView.addObject("aluno", aluno);
+        modelAndView.addObject("docentes", ar.findAll());
+            
+        } else {
+            // Redirecionar para a página de login se o professor não estiver logado
+            modelAndView.setViewName("redirect:/login-aluno");
+        }
+        return modelAndView;
+    }
 
     @GetMapping("/dados-aluno")
     public ModelAndView dadosAluno(HttpSession session) {

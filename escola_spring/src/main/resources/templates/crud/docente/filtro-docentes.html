@@ -3,34 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filtrando Alunos do Docente</title>
+    <title>Filtro de Docentes</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
     <link rel="stylesheet" th:href="@{css/filtro-alunos.css}">
 </head>
 <body>
     <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
-    <h1>Alunos da sua Matéria</h1>
+    <h1>Docentes da sua Matéria</h1>
     <div class="container">
         <table class="center-table">
             <thead>
                 <tr>
-                    <th>Ra</th>
+                    <th>Email</th>
                     <th>Nome</th>
                     <th>Turma</th>
-                    <th>Nota</th>
+                    <th>Matéria</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="aluno : ${alunos}">
-                    <th:block th:if="${aluno.turma == docente.turmas}">
-                        <td th:text="${aluno.ra}"></td>
-                        <td th:text="${aluno.nome}"></td>
-                        <td th:text="${aluno.turma}"></td>
-                        <td class="btn-cell">
+                <tr th:each="docente : ${docentes}">
+                    <th:block th:if="${docente.turmas == aluno.turma}">
+                        <td th:text="${docente.emailInstitucional}"></td>
+                        <td th:text="${docente.nome}"></td>
+                        <td th:text="${docente.turmas}"></td>
+                        <td th:text="${docente.materia}"></td>
+                        <!-- <td class="btn-cell">
                             <a th:href="@{'/lancamento/' + ${aluno.ra} }" class="btn-excluir">
                                 <i class="fas fa-trash-alt"></i> Lançar
                             </a>
-                        </td>
+                        </td> -->
                     </th:block>
                 </tr>
             </tbody>
