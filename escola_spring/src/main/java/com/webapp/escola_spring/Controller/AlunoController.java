@@ -27,9 +27,6 @@ public class AlunoController {
     @Autowired
     private HttpSession httpSession;
 
-
-    Aluno aluno;
-
     boolean acessoAluno = false;
 
     @PostMapping("/cadastrar-aluno")
@@ -72,6 +69,7 @@ public class AlunoController {
             boolean verificaSenha = alr.findByRa(ra).getSenha().equals(senha);
             String url = "";
             if (verificaRa && verificaSenha) {
+                Aluno aluno = alr.findByRa(ra);
                 httpSession.setAttribute("aluno", aluno);
                 httpSession.setAttribute("loggedin", true);
                 acessoAluno = true;
@@ -160,19 +158,18 @@ public class AlunoController {
     // return mv;
     // }
 
-    // @GetMapping("/dados-aluno")
-    // public ModelAndView dadosAluno(HttpSession session) {
-    // ModelAndView modelAndView = new ModelAndView("crud/aluno/dados-aluno");
-    // Aluno aluno = (Aluno) session.getAttribute("aluno");
-    // if (aluno != null) {
-    // modelAndView.addObject("aluno", alr.findAll());
-    // modelAndView.addObject("aluno", aluno);
+    @GetMapping("/dados-aluno")
+    public ModelAndView dadosAluno(HttpSession session) {
+    ModelAndView modelAndView = new ModelAndView("crud/aluno/dados-aluno");
+    Aluno aluno = (Aluno) session.getAttribute("aluno");
+    if (aluno != null) {
+    modelAndView.addObject("aluno", aluno);
 
-    // } else {
-    // // Redirecionar para a página de login se o professor não estiver logado
-    // // modelAndView.setViewName("redirect:/login-aluno");
-    // }
-    // return modelAndView;
-    // }
+    } else {
+    // Redirecionar para a página de login se o professor não estiver logado
+    modelAndView.setViewName("redirect:/login-aluno");
+    }
+    return modelAndView;
+    }
 
 }
