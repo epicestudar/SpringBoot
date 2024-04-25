@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.webapp.escola_spring.Model.Administrador;
+import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.AdministradorRepository;
 import com.webapp.escola_spring.Repository.VerificaCadastroAdmRepository;
 
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AdministradorController {
@@ -22,6 +24,9 @@ public class AdministradorController {
 
     @Autowired
     VerificaCadastroAdmRepository vcar;
+
+    @Autowired
+    private HttpSession httpSession;
 
     boolean acessoAdm = false;
 
@@ -67,6 +72,8 @@ public class AdministradorController {
                 boolean verificaSenha = administrador.getSenha().equals(senha);
                 String url = "";
                 if (verificaSenha) {
+                    httpSession.setAttribute("administrador", administrador);
+                    httpSession.setAttribute("loggedin", true);
                     acessoAdm = true;
                     url = "redirect:/interna-adm";
                 } else {
@@ -84,6 +91,23 @@ public class AdministradorController {
             System.out.println("Erro ao processar o login: " + e.getMessage());
             return "redirect:/login-adm";
         }
+    }
+
+    @GetMapping("/dados-adm")
+    public ModelAndView dadosAdm(HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView("crud/adm/dados-adm");
+        Administrador administrador = (Administrador) session.getAttribute("administrador");
+        if (administrador != null) {
+           
+        
+        modelAndView.addObject("administrador", administrador);
+        
+            
+        } else {
+            // Redirecionar para a página de login se o professor não estiver logado
+            modelAndView.setViewName("redirect:/login-adm");
+        }
+        return modelAndView;
     }
 
 }

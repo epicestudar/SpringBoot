@@ -226,7 +226,7 @@ public class DocenteController {
         return modelAndView;
     }
 
-    @GetMapping("/dados")
+    @GetMapping("/dados-docente")
     public ModelAndView dadosDocente(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView("crud/docente/dados-docente");
         Docente docente = (Docente) session.getAttribute("docente");
@@ -234,7 +234,7 @@ public class DocenteController {
            
         
         modelAndView.addObject("docente", docente);
-        modelAndView.addObject("alunos", ar.findAll());
+        
             
         } else {
             // Redirecionar para a página de login se o professor não estiver logado

@@ -10,11 +10,11 @@
 <body>
     <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
     <div class="info-docente">
-        <h2>Informações do Professor</h2>
-        <p>Nome: <span th:text="${docente.nome}"></span></p>
-        <p>Email: <span th:text="${docente.emailInstitucional}"></span></p>
-        <p> Matéria: <span th:text="${docente.materia}"></span> </span></p>
-        <p> Turma: <span th:text="${docente.turmas}"></span> </span></p>
+        <h2>Informações do Administrador</h2>
+        <p>Nome: <span th:text="${administrador.nome}"></span></p>
+        <p>Cpf: <span th:text="${administrador.cpf}"></span></p>
+        <p>Email: <span th:text="${administrador.email}"></span></p>
+        <p>Senha: <span th:text="${administrador.senha}"></span></p>
     </div>
     <div th:insert="~{fragmentos/footer :: footer}"></div>  
 </body>
