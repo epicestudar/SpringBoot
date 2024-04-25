@@ -21,7 +21,7 @@ public class Aluno implements Serializable {
     private Materias materias;
     private String materia;
     @OneToMany(mappedBy = "nomeAluno")
-    private List<LancarNotas> notas;
+    private List<LancarNotas> lancamentosNotas;
 
     public Materias getMaterias() {
         return materias;
@@ -39,12 +39,20 @@ public class Aluno implements Serializable {
         this.materia = materia;
     }
 
-    public List<LancarNotas> getNotas() {
-        return notas;
+    // public List<LancarNotas> getNotas() {
+    //     return notas;
+    // }
+
+    // public void setNotas(List<LancarNotas> notas) {
+    //     this.notas = notas;
+    // }
+
+    public List<LancarNotas> getLancamentosNotas() {
+        return lancamentosNotas;
     }
 
-    public void setNotas(List<LancarNotas> notas) {
-        this.notas = notas;
+    public void setLancamentosNotas(List<LancarNotas> lancamentosNotas) {
+        this.lancamentosNotas = lancamentosNotas;
     }
 
     public String getTurma() {
