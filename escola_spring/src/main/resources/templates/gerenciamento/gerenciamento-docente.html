@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
+        <div th:insert="~{fragmentos/header :: header}"></div>
         <h1>Lista de Professores</h1>
         <table class="table">
             <thead>
@@ -28,7 +28,7 @@
                     <td th:text="${docente.materia}"></td>
                     <td th:text="${docente.turmas}"></td>
                     <td>
-                        <a th:href="@{'/edit-docente/' + ${docente.emailInstitucional} }" class="btn btn-primary"><i class="fas fa-edit"></i></a> <!-- Botão de editar -->
+                        <a th:href="@{'/edit-docente/' + ${docente.emailInstitucional} }" class="btn btn-primary"><i class="fas fa-edit"></i></a>
                         <a th:href="@{'/delete-docente/' + ${docente.emailInstitucional} }" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i>
                         </a>

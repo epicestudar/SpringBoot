@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.webapp.escola_spring.Model.Aluno;
-import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Repository.AlunoRepository;
 import com.webapp.escola_spring.Repository.DocenteRepository;
 
@@ -48,9 +47,7 @@ public class AlunoController {
 
     @GetMapping("/logout-aluno")
     public String logout(HttpSession session) {
-        // Invalida a sessão
         session.invalidate();
-        // Redireciona para a página de login
         return "redirect:/login-aluno";
     }
 
@@ -91,7 +88,7 @@ public class AlunoController {
     public String listarAlunos(Model model) {
         List<Aluno> alunos = (List<Aluno>) alr.findAll();
         model.addAttribute("alunos", alunos);
-        return "gerenciamento/gerenciamento-aluno"; // Nome da sua página HTML para listar docentes
+        return "gerenciamento/gerenciamento-aluno";
     }
 
     @RequestMapping(value = "/delete-aluno/{ra}", method = RequestMethod.GET)
@@ -107,7 +104,7 @@ public class AlunoController {
         } catch (Exception e) {
             System.out.println("Erro ao excluir Aluno: " + e.getMessage());
         }
-        return "redirect:/gerenciamento-aluno"; // Redireciona de volta para a página de listar professores
+        return "redirect:/gerenciamento-aluno";
     }
 
     @RequestMapping(value = "/edit-aluno/{ra}", method = RequestMethod.GET)
@@ -129,18 +126,9 @@ public class AlunoController {
             alr.save(alunoExistente);
             return "redirect:/gerenciamento-aluno";
         } else {
-            // Handle the case where the professor does not exist
             return "redirect:/gerenciamento-aluno";
         }
     }
-
-    // @GetMapping("/filtro-aluno")
-    // public ModelAndView filtroAluno() {
-    // ModelAndView mv = new ModelAndView("aluno/filtrando-alunos");
-    // mv.addObject("alunos", alr.findAll());
-    // return mv;
-    // }
-
     @GetMapping("/interna-aluno/{ra}")
     public ModelAndView paginaAluno(@PathVariable("ra") String ra) {
         ModelAndView mv = new ModelAndView("interna/interna-aluno");
@@ -149,7 +137,7 @@ public class AlunoController {
         if (aluno != null) {
             mv.addObject("aluno", aluno);
         } else {
-            // Lógica para lidar com aluno não encontrado
+            
         }
 
         return mv;
@@ -166,7 +154,6 @@ public class AlunoController {
         modelAndView.addObject("docentes", ar.findAll());
             
         } else {
-            // Redirecionar para a página de login se o professor não estiver logado
             modelAndView.setViewName("redirect:/login-aluno");
         }
         return modelAndView;
@@ -180,7 +167,6 @@ public class AlunoController {
     modelAndView.addObject("aluno", aluno);
 
     } else {
-    // Redirecionar para a página de login se o professor não estiver logado
     modelAndView.setViewName("redirect:/login-aluno");
     }
     return modelAndView;

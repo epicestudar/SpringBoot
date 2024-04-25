@@ -46,9 +46,7 @@ public class AdministradorController {
 
     @GetMapping("/logout-adm")
     public String logout(HttpSession session) {
-        // Invalida a sessão
         session.invalidate();
-        // Redireciona para a página de login
         return "redirect:/login-adm";
     }
 
@@ -103,7 +101,6 @@ public class AdministradorController {
         
             
         } else {
-            // Redirecionar para a página de login se o professor não estiver logado
             modelAndView.setViewName("redirect:/login-adm");
         }
         return modelAndView;

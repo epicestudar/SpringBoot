@@ -9,8 +9,9 @@ gerenciamento de uma escola
  aluno: 
 - acesso interno (area do aluno, user/pass) - FEITO
 - ver informações das suas disciplinas - EM ANDAMENTO
+- ver as suas notas - EM ANDAMENTO
 
  professor: 
 - acesso interno (area do professor, user/pass) - FEITO
-- lançar notas para os alunos - EM ANDAMENTO
-- listar alunos cadastrados em suas disciplinas - EM ANDAMENTO
+- lançar notas para os alunos - FEITO
+- listar alunos cadastrados em suas disciplinas - FEITO

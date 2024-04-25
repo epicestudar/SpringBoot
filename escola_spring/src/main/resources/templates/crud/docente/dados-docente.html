@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{css/dados-docente.css}">
 </head>
 <body>
-    <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
+    <div th:insert="~{fragmentos/header :: header}"></div>
     <div class="info-docente">
         <h2>Informações do Professor</h2>
         <p>Nome: <span th:text="${docente.nome}"></span></p>

@@ -44,9 +44,7 @@ public class DocenteController {
 
     @GetMapping("/logout-docente")
     public String logout(HttpSession session) {
-        // Invalida a sessão
         session.invalidate();
-        // Redireciona para a página de login
         return "redirect:/login-docente";
     }
 
@@ -60,22 +58,6 @@ public class DocenteController {
         }
         return vaiPara;
     }
-
-    // @PostMapping("acesso-docente")
-    // public String acessoDocente(@RequestParam String email, @RequestParam String
-    // senha, HttpSession session) {
-    // try {
-    // Docente docente = alr.findByEmailInstitucional(email);
-    // if (docente != null && docente.getSenha().equals(senha)) {
-    // session.setAttribute("docente", docente);
-    // return "redirect:/interna-docente";
-    // } else {
-    // return "redirect:/login-docente";
-    // }
-    // } catch (Exception e) {
-    // return "redirect:/login-docente";
-    // }
-    // }
 
     @PostMapping("acesso-docente")
     public String acessoAluno(@RequestParam String email, @RequestParam String senha) {
@@ -103,7 +85,7 @@ public class DocenteController {
     public String listarDocentes(Model model) {
         List<Docente> docentes = (List<Docente>) alr.findAll();
         model.addAttribute("docentes", docentes);
-        return "gerenciamento/gerenciamento-docente"; // Nome da sua página HTML para listar docentes
+        return "gerenciamento/gerenciamento-docente"; 
     }
 
     @RequestMapping(value = "/delete-docente/{email}", method = RequestMethod.GET)
@@ -119,7 +101,7 @@ public class DocenteController {
         } catch (Exception e) {
             System.out.println("Erro ao excluir professor: " + e.getMessage());
         }
-        return "redirect:/gerenciamento-docente"; // Redireciona de volta para a página de listar professores
+        return "redirect:/gerenciamento-docente"; 
     }
 
     @RequestMapping(value = "/edit-docente/{emailInstitucional}", method = RequestMethod.GET)
@@ -141,7 +123,6 @@ public class DocenteController {
             alr.save(docenteExistente);
             return "redirect:/gerenciamento-docente";
         } else {
-            // Handle the case where the professor does not exist
             return "redirect:/gerenciamento-docente";
         }
     }
@@ -156,7 +137,6 @@ public class DocenteController {
         modelAndView.addObject("alunos", ar.findAll());
             
         } else {
-            // Redirecionar para a página de login se o professor não estiver logado
             modelAndView.setViewName("redirect:/login-docente");
         }
         return modelAndView;
@@ -173,7 +153,6 @@ public class DocenteController {
         
             
         } else {
-            // Redirecionar para a página de login se o professor não estiver logado
             modelAndView.setViewName("redirect:/login-docente");
         }
         return modelAndView;

@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{css/filtro-alunos.css}">
 </head>
 <body>
-    <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
+    <div th:insert="~{fragmentos/header :: header}"></div>
     <h1>Docentes da sua Matéria</h1>
     <div class="container">
         <table class="center-table">
@@ -27,11 +27,6 @@
                         <td th:text="${docente.nome}"></td>
                         <td th:text="${docente.turmas}"></td>
                         <td th:text="${docente.materia}"></td>
-                        <!-- <td class="btn-cell">
-                            <a th:href="@{'/lancamento/' + ${aluno.ra} }" class="btn-excluir">
-                                <i class="fas fa-trash-alt"></i> Lançar
-                            </a>
-                        </td> -->
                     </th:block>
                 </tr>
             </tbody>

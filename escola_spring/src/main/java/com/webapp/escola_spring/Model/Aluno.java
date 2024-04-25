@@ -38,15 +38,6 @@ public class Aluno implements Serializable {
     public void setMateria(String materia) {
         this.materia = materia;
     }
-
-    // public List<LancarNotas> getNotas() {
-    //     return notas;
-    // }
-
-    // public void setNotas(List<LancarNotas> notas) {
-    //     this.notas = notas;
-    // }
-
     public List<LancarNotas> getLancamentosNotas() {
         return lancamentosNotas;
     }
