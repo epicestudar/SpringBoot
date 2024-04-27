@@ -72,34 +72,21 @@ public class LancamentoNotasController {
         }
     }
 
-    // @GetMapping("/notas-aluno")
-    // public ModelAndView notasAluno(HttpSession session) {
-    //     ModelAndView modelAndView = new ModelAndView("crud/aluno/notas-aluno");
-
-    //     // Verifica se existe um aluno na sessão
-    //     Aluno aluno = (Aluno) session.getAttribute("aluno");
-
-    //     if (aluno != null) {
-    //         // Adiciona o aluno ao ModelAndView
-    //         modelAndView.addObject("aluno", aluno);
-
-    //         // Busca a nota do aluno no banco de dados
-    //         Aluno nota = lancarNotasRepository.findByAluno(aluno);
-
-    //         if (nota != null) {
-    //             // Se a nota existir, adiciona ao ModelAndView
-    //             modelAndView.addObject("nota", nota);
-    //         } else {
-    //             // Se a nota não existir, você pode adicionar uma mensagem para informar que a
-    //             // nota não está disponível
-    //             modelAndView.addObject("semNota", true);
-    //         }
-    //     } else {
-    //         // Lógica para lidar com o caso em que não há aluno na sessão
-    //         modelAndView.addObject("semAlunoNaSessao", true);
-    //     }
-
-    //     return modelAndView;
-    // }
+    @GetMapping("/notas-aluno")
+    public ModelAndView visualizarNota(HttpSession session) {
+        ModelAndView mv = new ModelAndView("crud/aluno/notas-aluno");
+    
+        Aluno aluno = (Aluno) session.getAttribute("aluno");
+        if (aluno != null) {
+            List<LancarNotas> notasDoAluno = lancarNotasRepository.findByNomeAluno(aluno);
+            mv.addObject("aluno", aluno);
+            mv.addObject("notas", notasDoAluno);
+        } else {
+            // Redirecionar para a página de login se o aluno não estiver logado
+            mv.setViewName("redirect:/login-aluno");
+        }
+        return mv;
+    }
+    
 
 }

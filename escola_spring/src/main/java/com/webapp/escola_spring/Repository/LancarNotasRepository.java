@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.webapp.escola_spring.Model.Aluno;
 import com.webapp.escola_spring.Model.LancarNotas;
 
-@Repository
-public interface LancarNotasRepository extends JpaRepository<LancarNotas, Long> {
-    // List<LancarNotas> findByAluno(String aluno);
-    // Aluno findByAluno(Aluno aluno);
+public interface LancarNotasRepository extends CrudRepository<LancarNotas, Long> {
+    LancarNotas findByIdNota(long idNota);
+    List<LancarNotas> findByNomeAluno(Aluno aluno);
 }
+

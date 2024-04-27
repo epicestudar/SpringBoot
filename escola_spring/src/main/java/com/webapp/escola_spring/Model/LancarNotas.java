@@ -14,7 +14,13 @@ public class LancarNotas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_nota;
+    private long idNota;
+    public long getIdNota() {
+        return idNota;
+    }
+    public void setIdNota(long idNota) {
+        this.idNota = idNota;
+    }
     @ManyToOne
     @JoinColumn(name = "materias", referencedColumnName = "materia")
     private Docente materia;
@@ -24,12 +30,6 @@ public class LancarNotas implements Serializable {
     private double nota;
     public static long getSerialversionuid() {
         return serialVersionUID;
-    }
-    public long getId_nota() {
-        return id_nota;
-    }
-    public void setId_nota(long id_nota) {
-        this.id_nota = id_nota;
     }
     public Docente getMateria() {
         return materia;

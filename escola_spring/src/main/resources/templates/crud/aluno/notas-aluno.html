@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas do Aluno</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/notas_aluno.css}">
 </head>
 <body>
-    <p th:if="${aluno != null}">Ra: <span th:text="${aluno.ra}"></span></p>
-    <p th:if="${aluno != null}">Nome: <span th:text="${aluno.nome}"></span></p>
-    <!-- <p th:if="${nota != null}">Nota: <span th:text="${nota.nota}"></span></p> -->
+    <h1>Suas Notas</h1>
+    <div class="container">
+        <table class="center-table">
+            <thead>
+                <tr>
+                    <th>Nota</th>
+                    <th>Nome</th>
+                    <th>Matéria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="nota : ${notas}">
+                    <th:block th:if="${nota.nomeAluno.ra == aluno.ra}">
+                        <td th:text="${nota.nota}"></td>
+                        <td th:text="${nota.nomeAluno.nome}"></td>
+                        <td th:text="${aluno.materia}"></td>
+                    </th:block>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
