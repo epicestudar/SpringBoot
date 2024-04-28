@@ -18,6 +18,7 @@
                     <th>Nome</th>
                     <th>Turma</th>
                     <th>Nota</th>
+                    <th>Falta</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,6 +29,11 @@
                         <td th:text="${aluno.turma}"></td>
                         <td class="btn-cell">
                             <a th:href="@{'/lancamento-nota?ra=' + ${aluno.ra} }" class="btn-excluir">
+                                <i class="fas fa-trash-alt"></i> Lançar
+                            </a>                                                    
+                        </td>
+                        <td class="btn-cell">
+                            <a th:href="@{'/lancamento-falta?ra=' + ${aluno.ra} }" class="btn-excluir">
                                 <i class="fas fa-trash-alt"></i> Lançar
                             </a>                                                    
                         </td>
