@@ -31,13 +31,13 @@
                     <input type="text" placeholder="RA do Aluno" name="ra" required>
                     <input type="text" placeholder="Curso do Aluno" name="curso" required>
                     <input type="text" placeholder="Turma do Aluno" name="turma" required>
+                    <input type="text" placeholder="Senha do Aluno" required>
+                    <input type="text" placeholder="Confirmar Senha" name="senha" required>
                     <label for="materiaSelect">Matéria:</label>
                     <select id="materiaSelect" name="materia">
                         <option th:each="materia : ${materias}" th:value="${materia.nome}"
                                 th:text="${materia.nome}"></option>
                     </select>
-                    <input type="text" placeholder="Senha do Aluno" required>
-                    <input type="text" placeholder="Confirmar Senha" name="senha" required>
                     <button type="submit">Cadastrar</button>
                 </form>
             </div>
@@ -53,34 +53,35 @@
                     <span>ou use seu email para se registrar</span>
                     <input type="text" placeholder="Nome do Docente" name="nome">
                     <input type="email" placeholder="Email do Docente" name="emailInstitucional">
+                    <input type="text" placeholder="Turmas do Docente" name="turmas">
+                    <input type="password" placeholder="Senha">
+                    <input type="password" placeholder="Confirmar Senha" name="senha">
                     <label for="materiaSelect">Matéria:</label>
                     <select id="materiaSelect" name="materia">
                         <option th:each="materia : ${materias}" th:value="${materia.nome}"
                                 th:text="${materia.nome}"></option>
                     </select>
-                    <input type="text" placeholder="Turmas do Docente" name="turmas">
-                    <input type="password" placeholder="Senha">
-                    <input type="password" placeholder="Confirmar Senha" name="senha">
                     <a href="">Esqueceu sua senha</a>
-                    <button type="submit">Login</button>
+                    <button type="submit">Cadastrar</button>
                 </form>
             </div>
             <div class="toggle-container">
                 <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                        <h1>Cadastre um Aluno!</h1>
-                        <p>Entre com suas informações de usuário para usar todas as ferramentas do nosso site</p>
-                        <button class="hidden" id="login">Entrar</button>
+                        <h1>Cadastre um Docente!</h1>
+                        <p>Faça o Cadastro de Docentes aqui e depois passe seus dados cadastrados</p>
+                        <button class="hidden" id="login">Cadastrar</button>
                     </div>
                     <div class="toggle-panel toggle-right">
-                        <h1>Registro de Docentes!</h1>
-                        <p>Registre-se em nosso site para ficar por dentro das novidades da nossa escola</p>
+                        <h1>Cadastre um Aluno!</h1>
+                        <p>Faça o Cadastro de Alunos aqui e depois passe seus dados cadastrados</p>
                         <button class="hidden" id="register">Cadastrar</button>
                     </div>
                 </div>
             </div>
     </div>
-    <br><br><br>
+    
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
 </body>
 <script th:src="@{/js/cadastros_aluno-docente.js}"></script>
 </html>

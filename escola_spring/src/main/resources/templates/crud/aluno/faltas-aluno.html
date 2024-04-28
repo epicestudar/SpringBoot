@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas do Aluno</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/style-notas_aluno.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="titulo">
+        <h1>Suas Faltas</h1>
+    </div>
+    <div class="container">
+        <table class="center-table">
+            <thead>
+                <tr>
+                    <th>Falta</th>
+                    <th>Nome</th>
+                    <th>Matéria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="falta : ${faltas}">
+                    <th:block th:if="${falta.nomeAluno.ra == aluno.ra}">
+                        <td th:text="${falta.diaFalta}"></td>
+                        <td th:text="${falta.nomeAluno.nome}"></td>
+                        <td th:text="${aluno.materia}"></td>
+                    </th:block>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
+</body>
+</html>

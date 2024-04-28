@@ -9,7 +9,7 @@
     <h1>Lançamento de Faltas</h1>
     <form action="/lancamento-falta" method="post">
         <label for="diaFalta">Falta:</label>
-        <input type="number" id="falta" name="diaFalta" step="0.1" required>
+        <input type="text" id="falta" name="diaFalta" required>
         <input type="hidden" id="ra" name="ra" th:value="${aluno.ra}">
         <input type="submit" value="Enviar falta">
     </form>
