@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Professores</title>
     <link rel="stylesheet" th:href="@{css/style.css}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{css/gerenciamento.css}">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
     <div class="container mt-5">
-        <div th:insert="~{fragmentos/header :: header}"></div>
         <h1>Lista de Professores</h1>
         <table class="table">
             <thead>
@@ -19,6 +22,8 @@
                     <th>Nome</th>
                     <th>Materia</th>
                     <th>Turmas</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +33,10 @@
                     <td th:text="${docente.materia}"></td>
                     <td th:text="${docente.turmas}"></td>
                     <td>
-                        <a th:href="@{'/edit-docente/' + ${docente.emailInstitucional} }" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                        <a th:href="@{'/edit-docente/' + ${docente.emailInstitucional} }" class="btn btn-primary"><i
+                                class="fas fa-edit"></i></a>
+                    </td>
+                    <td>
                         <a th:href="@{'/delete-docente/' + ${docente.emailInstitucional} }" class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i>
                         </a>
@@ -37,6 +45,7 @@
             </tbody>
         </table>
     </div>
-    <div th:insert="~{fragmentos/footer :: footer}"></div>  
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
 </body>
+
 </html>

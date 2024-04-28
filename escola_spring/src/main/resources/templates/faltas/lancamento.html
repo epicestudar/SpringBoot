@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário para lançar a falta do aluno</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/lancamento.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <h1>Lançamento de Faltas</h1>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="container">
+        <h1>Lançamento de Faltas</h1>
     <form action="/lancamento-falta" method="post">
         <label for="diaFalta">Falta:</label>
         <input type="text" id="falta" name="diaFalta" required>
         <input type="hidden" id="ra" name="ra" th:value="${aluno.ra}">
         <input type="submit" value="Enviar falta">
     </form>
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
 </body>
 </html>
