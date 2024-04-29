@@ -112,3 +112,6 @@ form .input-group button{
         padding: 0;
     }
 }
+.alert{
+    text-align: center;
+}

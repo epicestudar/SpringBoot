@@ -14,11 +14,17 @@
     
 <body>
     <div th:insert="~{fragmentos/header :: header}"></div>
-    <div class="container">
-        <img src="/imagens/banners/banner_teste.png" alt="">
-        <button></button>
+    <div class="container-slider">
+        <button id="prev-button"><img src="/imagens/banners/arrow.png" alt="prev-button"></button>
+        <div class="container-images">
+            <img src="/imagens/banners/banner_teste.png" alt="" class="slider on">
+            <img src="/imagens/banners/banner2.png" alt="" class="slider">
+            <img src="/imagens/banners/banner3.png" alt="" class="slider">
+        </div>
+        <button id="next-button"><img src="/imagens/banners/arrow.png" alt="next-button"></button>
     </div>
     <div th:insert="~{fragmentos/footer :: footer}"></div>
 
 </body>
+<script th:src="@{/js/carousel.js}"></script>
 </html>
