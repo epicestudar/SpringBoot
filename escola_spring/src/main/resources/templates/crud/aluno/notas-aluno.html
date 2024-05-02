@@ -14,24 +14,34 @@
         <h1>Suas Notas</h1>
     </div>
     <div class="container">
-        <table class="center-table">
-            <thead>
-                <tr>
-                    <th>Nota</th>
-                    <th>Nome</th>
-                    <th>Matéria</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="nota : ${notas}">
-                    <th:block th:if="${nota.nomeAluno.ra == aluno.ra}">
-                        <td th:text="${nota.nota}"></td>
-                        <td th:text="${nota.nomeAluno.nome}"></td>
-                        <td th:text="${aluno.materia}"></td>
-                    </th:block>
-                </tr>
-            </tbody>
-        </table>
+        <div class="ajuste">
+            <div class="msg" th:if="${#lists.isEmpty(notas)}">
+                <span class="no-notas-message">Nenhuma nota lançada ainda.</span> 
+            </div> 
+            <table class="center-table" th:if="${notas}">
+                <thead>
+                    <tr>
+                        <th>Nota</th>
+                        <th>Nome</th>
+                        <th>Matéria</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <th:block th:if="${#lists.isEmpty(notas)}">
+                        <tr>
+                            <td colspan="3">Nenhuma nota lançada ainda.</td>
+                        </tr>
+                    </th:block> -->
+                    <tr th:each="nota : ${notas}" th:if="${nota.nomeAluno.ra == aluno.ra}">
+                        <th:block th:if="${nota.nomeAluno.ra == aluno.ra}">
+                            <td th:text="${nota.nota}"></td>
+                            <td th:text="${nota.nomeAluno.nome}"></td>
+                            <td th:text="${aluno.materia}"></td>
+                        </th:block>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div th:insert="~{fragmentos/footer :: footer}"></div>
 </body>

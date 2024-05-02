@@ -1,3 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&family=Poppins:ital,wght@1,600&display=swap');
+.container-faq{
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 250px;
+    margin-bottom: 10%;
+}
 .container{
-    margin-top: 10%;
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.accordion-item{
+    background-color: #ff7777;
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: .5rem 2px .5rem rgba(0, 0, 0, 0.1);
+}
+
+.accordion-link{
+    font-size: 1.3rem;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    background-color: #ff7777;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    transition: all 0.2s ease-in-out;
+}
+.accordion-link:hover{
+    text-decoration: none;
+    color: rgb(0, 125, 188);
+}
+.accordion-link i{
+    color: #424044;
+    padding: .5rem;
+}
+
+.accordion-link .ion-md-remove{
+    display: none;
+}
+
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: #ff0a0a;
+    border-radius: 15px;
+    transition: max-height 650ms;
+}
+
+.answer::before{
+    content: '';
+    position: absolute;
+    width: .6rem;
+    height: 100%;
+    background-color: #fc3e05;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.answer p{
+    font-size: 1.1rem;
+    color: rgb(255, 255, 255);
+    padding: 2rem;
+}
+
+.accordion-item:target .answer{
+    max-height: 20rem;
+}
+.accordion-item:target .accordion-link .ion-md-add{
+    display: none;
+}
+
+.accordion-item:target .accordion-link .ion-md-remove{
+    display: block;
+}
+.title-faq{
+    font-size: 3vh;
+    text-align: center;
+    margin: 20px;
 }

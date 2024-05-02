@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,111 @@
     <link rel="stylesheet" th:href="@{css/style.css}">
     <link rel="stylesheet" th:href="@{css/style-cursos.css}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Link Bootstrap -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 </head>
+
 <body>
     <div th:insert="~{fragmentos/header :: header}"></div>
-    <div class="container">
-        <h1>página de cursos</h1>
-    </div>
-    <div th:insert="~{fragmentos/footer :: footer}"></div>   
+    <section class="container-faq">
+        <div class="container">
+            <div class="title-faq">
+                <h3>Dúvidas da maioria que podem ser suas também:</h3>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item" id="question1">
+                    <a class="accordion-link" href="#question1">
+                        Qual é a duração dos cursos oferecidos pelo SENAI?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            A duração dos cursos oferecidos pelo SENAI pode variar dependendo do programa específico. Geralmente,
+                            os cursos técnicos têm uma duração média de 2 anos, enquanto os cursos de qualificação profissional
+                            podem variar de algumas semanas a alguns meses. Recomendamos verificar as informações específicas de
+                            cada curso no site oficial do SENAI ou entrar em contato com a unidade local para obter detalhes
+                            precisos sobre a duração e a estrutura do curso.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" id="question2">
+                    <a class="accordion-link" href="#question2">
+                        Quais são as áreas de atuação dos cursos do SENAI?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            Os cursos do SENAI abrangem uma ampla gama de áreas de atuação, incluindo mecânica, eletrônica,
+                            informática, construção civil, logística, eletroeletrônica, automação industrial, entre outras.
+                            Os alunos podem optar por cursos técnicos, de aprendizagem industrial, de qualificação profissional
+                            e cursos de aperfeiçoamento em diversas áreas, proporcionando oportunidades em diferentes setores
+                            da indústria e do mercado de trabalho.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" id="question3">
+                    <a class="accordion-link" href="#question3">
+                        O SENAI oferece cursos gratuitos?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            O SENAI oferece diversos cursos gratuitos, principalmente por meio do Programa SENAI de Aprendizagem
+                            Industrial e do Programa Nacional de Acesso ao Ensino Técnico e Emprego (PRONATEC). Esses programas
+                            visam proporcionar educação técnica de qualidade para jovens e adultos, ampliando o acesso ao
+                            ensino profissionalizante e promovendo a inserção no mercado de trabalho.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" id="question4">
+                    <a class="accordion-link" href="#question4">
+                        Como posso me inscrever em um curso do SENAI?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            As inscrições para os cursos do SENAI podem ser feitas diretamente nas unidades presenciais do SENAI
+                            ou através do site oficial da instituição. No site, os interessados podem consultar a disponibilidade
+                            de cursos, os requisitos de inscrição e os documentos necessários para a matrícula. Além disso, o SENAI
+                            frequentemente realiza processos seletivos para preenchimento de vagas em cursos técnicos e de aprendizagem
+                            industrial, que também podem ser acompanhados através do site.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="accordion-item" id="question5">
+                    <a class="accordion-link" href="#question5">
+                        Quais são os benefícios de estudar no SENAI?
+                        <i class="icon ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </a>
+                    <div class="answer">
+                        <p>
+                            Estudar no SENAI oferece diversos benefícios, incluindo acesso a uma educação técnica de qualidade,
+                            preparação para o mercado de trabalho, oportunidades de estágio e emprego, certificação reconhecida
+                            nacionalmente, infraestrutura moderna com laboratórios e equipamentos atualizados, e suporte de uma
+                            equipe de professores e profissionais qualificados. Além disso, os cursos do SENAI são reconhecidos
+                            pela indústria e proporcionam uma excelente base para o desenvolvimento de uma carreira de sucesso
+                            em diversas áreas.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
 </body>
+
 </html>

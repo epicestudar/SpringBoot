@@ -6,6 +6,7 @@
         <title>Página Inicial da Escola</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" th:href="@{css/style.css}">
         <link rel="stylesheet" th:href="@{css/style-home.css}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
@@ -14,17 +15,168 @@
     
 <body>
     <div th:insert="~{fragmentos/header :: header}"></div>
-    <div class="container-slider">
-        <button id="prev-button"><img src="/imagens/banners/arrow.png" alt="prev-button"></button>
-        <div class="container-images">
-            <img src="/imagens/banners/banner_teste.png" alt="" class="slider on">
-            <img src="/imagens/banners/banner2.png" alt="" class="slider">
-            <img src="/imagens/banners/banner3.png" alt="" class="slider">
+    <div class="container mt-5">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="/imagens/banners/banner_teste.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="/imagens/banners/banner_teste.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="/imagens/banners/banner_teste.png" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <button id="next-button"><img src="/imagens/banners/arrow.png" alt="next-button"></button>
     </div>
+
+    <div class="container mt-5">
+        <h2>Nossos Cursos:</h2>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/imagens/cursos/1.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Elétrica</h5>
+                                    <p class="card-text">
+                                        O curso técnico de elétrica do SENAI é uma formação prática e teórica que prepara os alunos para trabalharem no setor elétrico, cobrindo instalações, manutenção e normas de segurança. É uma ótima opção para quem busca uma carreira na área elétrica, oferecendo habilidades essenciais e oportunidades no mercado de trabalho.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/imagens/cursos/2.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Desenvolvimento de Sistemas</h5>
+                                    <p class="card-text">O curso de desenvolvimento de sistemas do SENAI prepara alunos para carreiras em tecnologia. Eles aprendem programação, desenvolvimento de software e segurança da informação, entre outras habilidades. É uma escolha ideal para quem busca oportunidades no mercado de tecnologia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/imagens/cursos/3.jpeg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Planejamento de Obras</h5>
+                                    <p class="card-text">
+                                        O curso de planejamento de obras do SENAI prepara alunos para atuarem na gestão de projetos de construção civil. Eles aprendem técnicas de planejamento, controle de custos, gestão de prazos e normas de segurança. É uma opção ideal para quem deseja uma carreira na área da construção, oferecendo habilidades essenciais e oportunidades de trabalho em um setor em constante demanda.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/imagens/cursos/4.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Usinagem</h5>
+                                    <p class="card-text">O curso de usinagem do SENAI prepara alunos para atuarem na indústria metalúrgica. Eles aprendem técnicas de usinagem, operação de máquinas, leitura e interpretação de desenhos técnicos, além de normas de segurança. É uma opção ideal para quem busca uma carreira na área da produção industrial, oferecendo habilidades práticas e oportunidades de trabalho em diversos setores, como automotivo, aeronáutico e metalúrgico.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/imagens/cursos/5.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Mecânica</h5>
+                                    <p class="card-text">O curso de mecânica do SENAI prepara alunos para trabalhar com manutenção e reparo de máquinas e veículos. É uma opção para quem busca uma carreira prática e versátil na área da mecânica, oferecendo habilidades essenciais e oportunidades de trabalho em vários setores industriais.
+
+
+
+
+
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="/imagens/cursos/6.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Eletroeletrônica</h5>
+                                    <p class="card-text">O curso de eletroeletrônica do SENAI prepara profissionais para trabalhar com eletrônica e sistemas elétricos em diversos setores industriais. É uma formação prática e versátil, oferecendo oportunidades em áreas como telecomunicações, automação industrial e energia.
+
+
+
+
+
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Próximo</span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="recomendacoes-semana">
+        <h1>Um pouco sobre a nossa história</h1>
+    </div>
+
+    <section class="recomendacao">
+        <div class="container-recomendacoes">
+
+            <img src="/imagens/senai/img1.png" alt=""> <!-- Colocar a imagem do livro aqui -->
+            <section class="texto">
+                <h2 class="titulo">Fundação do SENAI</h2>
+                <p class="paragrafo">O SENAI (Serviço Nacional de Aprendizagem Industrial) é uma instituição brasileira com uma história rica e significativa no desenvolvimento industrial do país. Fundado em 1942, durante o governo de Getúlio Vargas, o SENAI surgiu como resposta à necessidade de preparar mão de obra qualificada para atender às demandas da industrialização em ascensão. Desde então, tem desempenhado um papel fundamental na formação de profissionais para os mais diversos setores da indústria brasileira.
+
+                    Ao longo dos anos, o SENAI expandiu sua atuação, oferecendo uma ampla gama de cursos técnicos, de qualificação profissional e de educação continuada, abrangendo áreas como mecânica, eletrônica, informática, construção civil, automação, entre outras. Sua metodologia de ensino, aliada a infraestrutura moderna e laboratórios equipados, proporciona aos alunos uma formação de qualidade e alinhada às demandas do mercado de trabalho.
+
+    
+                </p>
+            </section>
+        </div>
+        </div>
+        <div class="container-recomendacoes2">
+
+            <section class="texto2">
+                <h2 class="titulo">Nossos Compromissos</h2>
+                <p class="paragrafo">Além da formação técnica, o SENAI também desempenha um papel importante na pesquisa e inovação industrial, contribuindo para o desenvolvimento de novas tecnologias e processos produtivos. Por meio de parcerias com empresas e instituições de pesquisa, o SENAI promove a transferência de conhecimento e a aplicação prática de soluções inovadoras, impulsionando a competitividade da indústria brasileira no cenário global.
+
+
+
+                    Com uma trajetória marcada pelo compromisso com a excelência educacional e o desenvolvimento industrial, o SENAI continua a ser uma referência em educação profissional no Brasil, preparando milhares de profissionais qualificados a cada ano e contribuindo para o avanço tecnológico e econômico do país.
+                </p>
+            </section>
+
+            <img src="/imagens/senai/img2.jpg" alt=""> <!-- Colocar a imagem do livro aqui -->
+        </div>
+
+    </section>
     <div th:insert="~{fragmentos/footer :: footer}"></div>
 
 </body>
-<script th:src="@{/js/carousel.js}"></script>
+<!-- <script th:src="@{/js/carousel.js}"></script> -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>
