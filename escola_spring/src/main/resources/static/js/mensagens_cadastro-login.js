@@ -1,7 +1,37 @@
- // Função para ocultar a mensagem de erro após 5 segundos
- setTimeout(function() {
-    var errorMessage = document.getElementById('erroMessage');
-    if (errorMessage) {
-        errorMessage.style.display = 'none';
+function validarFormularioAluno() {
+    var senha = document.getElementById("senha_aluno").value;
+    var confirmarSenha = document.getElementById("confirmar_senha_aluno").value;
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não correspondem.");
+        return false;
     }
-}, 5000); // 5000 milissegundos = 5 segundos
+
+    var inputs = document.querySelectorAll("#container .sign-up input[required]");
+    for (var i = 0; i < inputs.length; i++) {
+        if (!inputs[i].value) {
+            alert("Por favor, preencha todos os campos.");
+            return false;
+        }
+    }
+    return true;
+}
+
+function validarFormularioDocente() {
+    var senha = document.getElementById("senha_docente").value;
+    var confirmarSenha = document.getElementById("confirmar_senha_docente").value;
+
+    if (senha !== confirmarSenha) {
+        alert("As senhas não correspondem.");
+        return false;
+    }
+
+    var inputs = document.querySelectorAll("#container .sign-in input[required]");
+    for (var i = 0; i < inputs.length; i++) {
+        if (!inputs[i].value) {
+            alert("Por favor, preencha todos os campos.");
+            return false;
+        }
+    }
+    return true;
+}

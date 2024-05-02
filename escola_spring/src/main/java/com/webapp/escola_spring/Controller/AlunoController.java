@@ -40,7 +40,7 @@ public class AlunoController {
             return "/interna/interna-adm";
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar aluno: " + e.getMessage());
-            model.addAttribute("erro", "Erro ao cadastrar aluno");
+            model.addAttribute("erroSenha", "Sua senha está incorreta");
             return "/cadastro/cadastro-aluno_docente";
         }
     }

@@ -9,3 +9,10 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
+
+setTimeout(function() {
+    var erroSenha = document.getElementById('erro2');
+    if (erroSenha) {
+        erroSenha.style.display = 'none';
+    }
+}, 5000); // 5000 milissegundos = 5 segundos

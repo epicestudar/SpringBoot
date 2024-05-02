@@ -19,7 +19,9 @@
                     <th>RA</th>
                     <th>Nome</th>
                     <th>Curso</th>
-                    <th>Período</th>
+                    <th>Matéria</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,11 +29,12 @@
                     <td th:text="${aluno.ra}"></td>
                     <td th:text="${aluno.nome}"></td>
                     <td th:text="${aluno.curso}"></td>
+                    <td th:text="${aluno.materia}"></td>
                     <td>
                         <a th:href="@{'/edit-aluno/' + ${aluno.ra} }" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                        <a th:href="@{'/delete-aluno/' + ${aluno.ra} }" class="btn btn-danger">
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/delete-aluno/' + ${aluno.ra} }" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
             </tbody>

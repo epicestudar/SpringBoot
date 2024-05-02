@@ -8,17 +8,18 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{css/style.css}">
     <link rel="stylesheet" th:href="@{css/style-cadastro.css}">
+    <script th:src="@{/js/mensagens_cadastro-login.js}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div th:insert="~{fragmentos/header :: header}"><!-- barra de menu --></div>
     <div class="container" id="container">
-        <div th:if="${erro}" class="alert alert-danger" role="alert">
-            <p th:text="${erro}"></p>
+        <div th:if="${erroSenha}" class="alert alert-danger" id="erro2" role="alert">
+            <p th:text="${erroSenha}"></p>
         </div>  
         <div class="form-container sign-up">
-            <form action="cadastrar-aluno" method="post">
+            <form action="cadastrar-aluno" method="post" onsubmit="return validarFormularioAluno()">
                     <h1>Cadastro de Alunos</h1>
                     <div class="social-icons">
                         <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -31,8 +32,8 @@
                     <input type="text" placeholder="RA do Aluno" name="ra" required>
                     <input type="text" placeholder="Curso do Aluno" name="curso" required>
                     <input type="text" placeholder="Turma do Aluno" name="turma" required>
-                    <input type="text" placeholder="Senha do Aluno" required>
-                    <input type="text" placeholder="Confirmar Senha" name="senha" required>
+                    <input type="password" placeholder="Senha do Aluno" id="senha_aluno" required>
+                    <input type="password" placeholder="Confirmar Senha" name="senha" id="confirmar_senha_aluno" required>
                     <label for="materiaSelect">Matéria:</label>
                     <select id="materiaSelect" name="materia">
                         <option th:each="materia : ${materias}" th:value="${materia.nome}"
@@ -42,7 +43,7 @@
                 </form>
             </div>
             <div class="form-container sign-in">
-            <form action="cadastrar-docente" method="post">
+            <form action="cadastrar-docente" method="post" onsubmit="return validarFormularioDocente()">
                     <h1>Cadastro de Docentes</h1>
                     <div class="social-icons">
                         <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -51,11 +52,11 @@
                         <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                     <span>ou use seu email para se registrar</span>
-                    <input type="text" placeholder="Nome do Docente" name="nome">
-                    <input type="email" placeholder="Email do Docente" name="emailInstitucional">
-                    <input type="text" placeholder="Turmas do Docente" name="turmas">
-                    <input type="password" placeholder="Senha">
-                    <input type="password" placeholder="Confirmar Senha" name="senha">
+                    <input type="text" placeholder="Nome do Docente" name="nome" required>
+                    <input type="email" placeholder="Email do Docente" name="emailInstitucional" required>
+                    <input type="text" placeholder="Turmas do Docente" name="turmas" required>
+                    <input type="password" placeholder="Senha" id="senha_docente" required>
+                    <input type="password" placeholder="Confirmar Senha" name="senha" id="confirmar_senha_docente" required>
                     <label for="materiaSelect">Matéria:</label>
                     <select id="materiaSelect" name="materia">
                         <option th:each="materia : ${materias}" th:value="${materia.nome}"
