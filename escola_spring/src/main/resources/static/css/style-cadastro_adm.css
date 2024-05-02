@@ -6,10 +6,10 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    background-image: url(/imagens/logo/background.png);
+    /* background-image: url(/imagens/logo/background.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,7 +27,7 @@ body{
     width: 930px;
 }
 .img-box{
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(185, 9, 9, 0.4);
     width: 50%;
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@ body{
     width: 100%;
 }
 .form-box{
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(185, 9, 9, 0.4);
     backdrop-filter: blur(40px);
     padding: 30px 40px;
     width: 50%;
@@ -52,7 +52,7 @@ body{
     color: #3D3D3D;
 }
 .form-box p a{
-    color: #FF008A;
+    color: #ff0000;
     text-decoration: none;
 }
 .form-box form{
@@ -85,7 +85,7 @@ form .input-group input:focus{
 form .input-group button{
     width: 100%;
     height: 47px;
-    background: #FF008A;
+    background: #ff0000;
     border-radius: 20px;
     outline: none;
     border: none;
@@ -113,5 +113,7 @@ form .input-group button{
     }
 }
 .alert{
+    background-color: rgb(228, 82, 82);
     text-align: center;
+    color: white;
 }

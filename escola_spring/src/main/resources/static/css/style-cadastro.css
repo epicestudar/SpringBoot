@@ -32,7 +32,7 @@ body {
 }
 
 .container button{
-    background-color: #d4983e;
+    background-color: #d43e3e;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -145,7 +145,7 @@ body {
 .toggle{
     background-color: #512da8;
     height: 100%;
-    background: linear-gradient(to right, #ddd451, #a53e25);
+    background: linear-gradient(to right, #cfdd51, #a52525);
     color: #fff;
     position: relative;
     left: -100%;
@@ -171,12 +171,16 @@ body {
     transform: translateX(0);
     transition: all 0.6s ease-in-out;
 }
+.toggle-panel .toggle-left{
+    background: linear-gradient(to right, #cfdd51, #a52525);
+}
 .toggle-left{
     transform: translateX(-200%);
 }
 
 .container.active .toggle-left{
     transform: translateX(0);
+    background: linear-gradient(to left, #a56325, #dd7251);
 }
 
 .toggle-right{

@@ -164,3 +164,6 @@
 .carousel-control-prev-icon{
     color: red;
 }
+#carouselExampleControls{
+    margin-top: 20%;
+}

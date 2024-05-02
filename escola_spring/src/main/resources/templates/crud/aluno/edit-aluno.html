@@ -28,7 +28,7 @@
             <select id="materiaSelect" name="materia">
                 <option th:each="materia : ${materias}" th:value="${materia.nome}" th:text="${materia.nome}"></option>
             </select> -->
-            <div> <br><br><br><br><br>
+            <div>
                 <label for="turma">Turma:</label>
                 <input type="text" id="turma" name="turma" th:value="${aluno.turma}">
             </div>
