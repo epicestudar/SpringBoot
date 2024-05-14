@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{css/style.css}">
+    </head>
+
+<header>
+    <img src="/imagens/logo/Logo.png" alt="" class="logo">
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar">MENU</label>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/suporte">Suporte</a></li>
+            <li><a href="/contato">Contato</a></li>
+            <li><a href="#">Cadastro +</a>
+                <ul>
+                    <li><a href="/login">Usuário</a></li>
+                    <li><a href="/login-docente">Administrador</a></li>
+                    <!-- <li><a href="/login-adm">Administrador</a></li> -->
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>

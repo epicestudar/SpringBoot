@@ -30,6 +30,16 @@
             "projectName": "rh_app_jpa",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-LocadoraVeiculosApplication<locadora_veiculos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "webapp.locadora_veiculos.LocadoraVeiculosApplication",
+            "projectName": "locadora_veiculos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
