@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.webapp.escola_spring.Model.Aluno;
+import com.webapp.escola_spring.Model.Docente;
 import com.webapp.escola_spring.Model.LancarNotas;
 import com.webapp.escola_spring.Repository.AlunoRepository;
 import com.webapp.escola_spring.Repository.LancarNotasRepository;
@@ -77,9 +78,11 @@ public class LancamentoNotasController {
         ModelAndView mv = new ModelAndView("crud/aluno/notas-aluno");
     
         Aluno aluno = (Aluno) session.getAttribute("aluno");
+        Docente docente = (Docente) session.getAttribute("docente");
         if (aluno != null) {
             List<LancarNotas> notasDoAluno = lancarNotasRepository.findByNomeAluno(aluno);
             mv.addObject("aluno", aluno);
+            mv.addObject("docente", docente);
             mv.addObject("notas", notasDoAluno);
         } else {
             // Redirecionar para a página de login se o aluno não estiver logado
