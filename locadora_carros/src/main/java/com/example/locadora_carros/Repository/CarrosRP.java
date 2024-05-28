@@ -1,5 +1,9 @@
 package com.example.locadora_carros.Repository;
 
-public interface CarrosRP {
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.locadora_carros.Model.Carros;
+
+public interface CarrosRP extends CrudRepository<Carros, Long>{
 
 }

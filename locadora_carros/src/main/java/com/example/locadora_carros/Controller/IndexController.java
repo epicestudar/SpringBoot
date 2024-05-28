@@ -9,4 +9,12 @@ public class IndexController {
     public String acessoHomePage() {
         return "index";
     }
+    @GetMapping("/login-funcionario")
+    public String acessoLoginFuncionario() {
+        return "login/login-funcionario";
+    }
+    @GetMapping("/cadastro-funcionario")
+    public String acessoCadastroFuncionario() {
+        return "cadastro/cadastro-funcionario";
+    }
 }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honda - Login Funcionario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/style-login.css}">
+    <link rel="stylesheet" th:href="@{css/reset.css}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="login-card-container">
+        <div th:if="${erro}" class="alert alert-danger" role="alert">
+            <p th:text="${erro}"></p>
+        </div>
+        <div class="login-card">
+            <div class="login-card-logo">
+                <i class="ri-admin-fill"></i>
+            </div>
+            <div class="login-card-header">
+                <h1>Faça seu Login</h1>
+                <div>Logo depois você será redirecionado para a Página do Administrador</div>
+            </div>
+            <form action="" class="login-card-form" method="post">
+                <div class="form-item">
+                    <i class="ri-mail-fill form-item-icon"></i>
+                    <input type="text" placeholder="CPF do Usuário" name="cpf" id="emailForm" 
+                    autofocus required>
+                </div>
+                <div class="form-item">
+                    <i class="ri-lock-fill form-item-icon"></i>
+                    <input type="password" placeholder="Senha" name="senha" id="passwordForm"
+                     required>
+                </div>
+                <!-- <div class="form-item-other">
+                    <div class="checkbox">
+                        <input type="checkbox" id="rememberMeCheckbox" checked>
+                        <label for="rememberMeCheckbox">Salvar login</label>
+                    </div>
+                    <a href="#">Eu esqueci minha senha!</a>
+                </div> -->
+                <button type="submit">Entrar</button>
+            </form>
+            <div class="login-card-footer">
+                Não tem uma conta? <a href="/cadastro-funcionario">Crie uma.</a>
+            </div>
+        </div>
+        <div class="login-card-social">
+            <div>Other Sign-In Options</div>
+            <div class="login-card-social-btns">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-google" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M17.788 5.108a9 9 0 1 0 3.212 6.892h-8"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
+</body>
+</html>
