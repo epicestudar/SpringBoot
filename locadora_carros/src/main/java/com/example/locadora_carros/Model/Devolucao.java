@@ -23,9 +23,6 @@ public class Devolucao implements Serializable {
     @JoinColumn(name = "idCarro", referencedColumnName = "idCarro")
     private Carros carro;
 
-    @ManyToOne
-    @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
-    private Cliente cliente;
 
     // Getters e Setters
     public long getIdDevolucao() {
@@ -66,13 +63,5 @@ public class Devolucao implements Serializable {
 
     public void setCarro(Carros carro) {
         this.carro = carro;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 }

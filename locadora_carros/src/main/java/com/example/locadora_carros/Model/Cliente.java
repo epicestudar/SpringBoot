@@ -12,27 +12,27 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Cliente implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idCliente;
-    private String nome;
     private String email;
+    private String nome;
     private String telefone;
-    private String endereco;
     private String cidade;
     private String estado;
+    private String senha;
     
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     @ManyToOne
     @JoinColumn(name = "id_agencia", referencedColumnName = "id_agencia")
     private Agencia agencia;
     
     // Getters e Setters
-    public long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
-    }
+    
 
     public String getNome() {
         return nome;
@@ -56,14 +56,6 @@ public class Cliente implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     public String getCidade() {

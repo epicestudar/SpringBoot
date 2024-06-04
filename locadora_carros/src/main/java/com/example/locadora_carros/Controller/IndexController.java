@@ -13,8 +13,20 @@ public class IndexController {
     public String acessoLoginFuncionario() {
         return "login/login-funcionario";
     }
+    @GetMapping("/login-cliente")
+    public String acessoLoginCliente() {
+        return "login/login-cliente";
+    }
     @GetMapping("/cadastro-funcionario")
     public String acessoCadastroFuncionario() {
         return "cadastro/cadastro-funcionario";
+    }
+    @GetMapping("/cadastro-cliente")
+    public String acessoCadastroCliente() {
+        return "cadastro/cadastro-cliente";
+    }
+    @GetMapping("/cadastro-carro")
+    public String cadastroCarro() {
+        return "cadastro/cadastro-carro";
     }
 }

@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.locadora_carros.Model.Cliente;
 
-public interface ClienteRP extends CrudRepository<Cliente, Long>{
-
+public interface ClienteRP extends CrudRepository<Cliente, String>{
+    Cliente findByEmail(String email);
 }

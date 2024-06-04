@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados do Aluno autenticado</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/dados-funcionario.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="info-docente">
+        <h2>Informações da sua conta</h2>
+        <p>Ra: <span th:text="${funcionario.email}"></span></p>
+        <p>Nome: <span th:text="${funcionario.nome}"></span></p>
+        <p> Matéria: <span th:text="${funcionario.telefone}"></span> </span></p>
+        <p> Turma: <span th:text="${funcionario.cargo}"></span> </span></p>
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>  
+</body>
+</html>

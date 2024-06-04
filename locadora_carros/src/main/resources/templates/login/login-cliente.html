@@ -16,18 +16,15 @@
 <body>
     <div th:insert="~{fragmentos/header :: header}"></div>
     <div class="login-card-container">
-        <div th:if="${erro}" class="alert alert-danger" role="alert">
-            <p th:text="${erro}"></p>
-        </div>
         <div class="login-card">
             <div class="login-card-logo">
                 <i class="ri-admin-fill"></i>
             </div>
             <div class="login-card-header">
                 <h1>Faça seu Login</h1>
-                <div>Logo depois você será redirecionado para a Página do Funcionário</div>
+                <div>Logo depois você será redirecionado para a Página do Cliente</div>
             </div>
-            <form action="acesso-funcionario" class="login-card-form" method="post">
+            <form action="acesso-cliente" class="login-card-form" method="post">
                 <div class="form-item">
                     <i class="ri-mail-fill form-item-icon"></i>
                     <input type="text" placeholder="Email do Usuário" name="email" id="emailForm" 
@@ -48,7 +45,7 @@
                 <button type="submit">Entrar</button>
             </form>
             <div class="login-card-footer">
-                Não tem uma conta? <a href="/cadastro-funcionario">Crie uma.</a>
+                Não tem uma conta? <a href="/cadastro-cliente">Crie uma.</a>
             </div>
         </div>
         <div class="login-card-social">

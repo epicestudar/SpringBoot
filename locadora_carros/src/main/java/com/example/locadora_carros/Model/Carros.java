@@ -19,6 +19,7 @@ public class Carros implements Serializable{
     private String modelo;
     private String disponibilidade;
     private String tipo;
+    private double valor;
     @ManyToOne
     @JoinColumn(name = "id_agencia", referencedColumnName = "id_agencia")
     private Agencia agencia;
@@ -63,6 +64,12 @@ public class Carros implements Serializable{
     }
     public void setAgencia(Agencia agencia) {
         this.agencia = agencia;
+    }
+    public double getValor() {
+        return valor;
+    }
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     

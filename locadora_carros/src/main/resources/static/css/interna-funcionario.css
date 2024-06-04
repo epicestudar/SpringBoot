@@ -1,0 +1,46 @@
+.container{
+    margin-top: 10%;
+    font-family: "Poppins", sans-serif;
+}
+
+.autenticacao{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.botoes{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botoes button{
+    
+    font-weight: 700;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botoes .logout{
+    background-color: red;
+}
+
+.botoes .padrao {
+    background-color: #8cbcd3; /* Azul claro */
+}
+
+.botoes .padrao:hover{
+    background-color: #8ecae6;
+}
+
+.botoes .logout:hover{
+    background-color: rgb(240, 102, 102);
+}

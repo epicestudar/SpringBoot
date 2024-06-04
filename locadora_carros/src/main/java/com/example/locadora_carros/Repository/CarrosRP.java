@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.locadora_carros.Model.Carros;
 
-public interface CarrosRP extends CrudRepository<Carros, Long>{
 
+public interface CarrosRP extends CrudRepository<Carros, Long>{
+    Carros findByIdCarro(Long idCarro);
 }

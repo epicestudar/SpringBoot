@@ -1,11 +1,8 @@
 package com.example.locadora_carros.Model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -13,26 +10,17 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Funcionario implements Serializable {
     @Id
-    // @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idFuncionario;
-    private String nome;
     private String email;
+    private String senha;
+    private String nome;
     private String telefone;
     private String cargo;
-    private LocalDate dataContratacao;
 
     @ManyToOne
     @JoinColumn(name = "id_agencia", referencedColumnName = "id_agencia")
     private Agencia agencia;
 
     // Getters e Setters
-    public long getIdFuncionario() {
-        return idFuncionario;
-    }
-
-    public void setIdFuncionario(long idFuncionario) {
-        this.idFuncionario = idFuncionario;
-    }
 
     public String getNome() {
         return nome;
@@ -66,19 +54,18 @@ public class Funcionario implements Serializable {
         this.cargo = cargo;
     }
 
-    public LocalDate getDataContratacao() {
-        return dataContratacao;
-    }
-
-    public void setDataContratacao(LocalDate dataContratacao) {
-        this.dataContratacao = dataContratacao;
-    }
-
     public Agencia getAgencia() {
         return agencia;
     }
 
     public void setAgencia(Agencia agencia) {
         this.agencia = agencia;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

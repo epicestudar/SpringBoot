@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Aluno</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/edit.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="container">
+        <h1>Editar Carro</h1>
+        <form action="/atualizar-carro" method="post">
+            <input type="hidden" name="idCarro" th:value="${idCarro}">
+            <div>
+                <label for="placa">Placa:</label>
+                <input type="text" id="placa" name="placa" th:value="${carro.placa}">
+            </div>
+            <div>
+                <label for="ano">Ano:</label>
+                <input type="text" id="ano" name="ano" th:value="${carro.ano}">
+            </div>
+            <!-- <label for="materiaSelect">Matéria:</label>
+            <select id="materiaSelect" name="materia">
+                <option th:each="materia : ${materias}" th:value="${materia.nome}" th:text="${materia.nome}"></option>
+            </select> -->
+            <div>
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" name="modelo" th:value="${carro.modelo}">
+            </div>
+            <div>
+                <label for="disponibilidade">Disponibilidade:</label>
+                <input type="text" id="disponibilidade" name="disponibilidade" th:value="${carro.disponibilidade}">
+            </div>
+            <div>
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" name="tipo" th:value="${carro.tipo}">
+            </div>
+            <div>
+                <button type="submit">Salvar Alterações</button>
+            </div>
+        </form>
+
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
+</body>
+
+</html>

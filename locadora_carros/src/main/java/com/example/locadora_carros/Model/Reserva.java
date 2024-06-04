@@ -22,10 +22,6 @@ public class Reserva implements Serializable {
     @JoinColumn(name = "placa", referencedColumnName = "placa")
     private Carros carro;
 
-    @ManyToOne
-    @JoinColumn(name = "idCliente", referencedColumnName = "idCliente")
-    private Cliente cliente;
-
     // Getters e Setters
     public long getIdReserva() {
         return idReserva;
@@ -57,13 +53,5 @@ public class Reserva implements Serializable {
 
     public void setCarro(Carros carro) {
         this.carro = carro;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
     }
 }
