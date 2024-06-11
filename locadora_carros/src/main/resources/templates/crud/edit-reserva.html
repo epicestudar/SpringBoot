@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Aluno</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/edit.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="container mt-5">
+        <h2>Editar Reserva</h2>
+        <form action="/atualizar-reserva" method="post">
+            <input type="hidden" name="idReserva" th:value="${idReserva}" />
+            <div class="form-group">
+                <label for="cliente">Email do Cliente:</label>
+                <input type="text" class="form-control" id="cliente" name="cliente.email" th:value="${reserva.cliente != null ? reserva.cliente.email : ''}" />
+            </div>
+            <div class="form-group">
+                <label for="dataReserva">Data da Reserva:</label>
+                <input type="date" class="form-control" id="dataReserva" name="dataReserva" th:value="${reserva.dataReserva}" />
+            </div>
+            <div class="form-group">
+                <label for="dataDevolucao">Data da Devolução:</label>
+                <input type="date" class="form-control" id="dataDevolucao" name="dataDevolucao" th:value="${reserva.dataDevolucao}" />
+            </div>
+            <button type="submit" class="btn btn-primary">Atualizar Reserva</button>
+        </form>
+    </div>
+    
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
+</body>
+
+</html>

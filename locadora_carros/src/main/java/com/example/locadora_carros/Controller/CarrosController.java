@@ -34,12 +34,18 @@ public class CarrosController {
         }
     }
 
-
     @GetMapping("/gerenciamento-carro")
     public String listarCarros(Model model) {
         List<Carros> carros = (List<Carros>) cr.findAll();
         model.addAttribute("carros", carros);
         return "gerenciamento/gerenciamento-carro";
+    }
+
+    @GetMapping("/reserva-carro")
+    public String reservaCarros(Model model) {
+        List<Carros> carros = (List<Carros>) cr.findAll();
+        model.addAttribute("carros", carros);
+        return "reserva/reserva-carro";
     }
 
     @RequestMapping(value = "/delete-carro/{idCarro}", method = RequestMethod.GET)
@@ -80,6 +86,26 @@ public class CarrosController {
         } else {
             return "redirect:/gerenciamento-carro";
         }
+    }
+
+    @GetMapping("/buscar-carro")
+    public String buscarCarroPorPlaca(@RequestParam(name = "placa", required = false) String placa, Model model) {
+        if (placa != null && !placa.isEmpty()) {
+            Carros carro = cr.findByPlaca(placa);
+            if (carro != null) {
+                model.addAttribute("carro", carro);
+                model.addAttribute("mensagem", null); // Limpa a mensagem de erro, se houver
+            } else {
+                model.addAttribute("carro", null); // Limpa os dados do carro, se houver
+                model.addAttribute("mensagem", "Carro não encontrado com a placa " + placa);
+            }
+        } else {
+            model.addAttribute("carro", null); // Limpa os dados do carro, se houver
+            model.addAttribute("mensagem", "Por favor, insira uma placa para buscar");
+        }
+        List<Carros> carros = (List<Carros>) cr.findAll(); // Lista todos os carros para exibição
+        model.addAttribute("carros", carros);
+        return "buscar/buscar-carro";
     }
 
 }

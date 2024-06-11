@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Alunos</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/gerenciamento.css}">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="container mt-5">
+        <h1>Lista de Clientes</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Nome</th>
+                    <th>Estado</th>
+                    <th>Telefone</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.email}"></td>
+                    <td th:text="${cliente.nome}"></td>
+                    <td th:text="${cliente.estado}"></td>
+                    <td th:text="${cliente.telefone}"></td>
+                    <td>
+                        <a th:href="@{'/edit-cliente/' + ${cliente.email} }" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/delete-cliente/' + ${cliente.email} }" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>  
+</body>
+</html>

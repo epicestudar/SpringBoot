@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Aluno</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/edit.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="container">
+        <h1>Editar Cliente</h1>
+        <form action="/atualizar-cliente" method="post">
+            <input type="hidden" name="email" th:value="${email}">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" th:value="${cliente.nome}">
+            </div>
+            <div>
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" th:value="${cliente.estado}">
+            </div>
+            <!-- <label for="materiaSelect">Matéria:</label>
+            <select id="materiaSelect" name="materia">
+                <option th:each="materia : ${materias}" th:value="${materia.nome}" th:text="${materia.nome}"></option>
+            </select> -->
+            <div>
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" th:value="${cliente.telefone}">
+            </div>
+            <div>
+                <button type="submit">Salvar Alterações</button>
+            </div>
+        </form>
+
+    </div>
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
+</body>
+
+</html>

@@ -1,7 +1,9 @@
 package com.example.locadora_carros.Model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,12 +17,20 @@ public class Reserva implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idReserva;
-    private LocalDate dataReserva;
-    private LocalDate dataDevolucao;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dataReserva;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dataDevolucao;
 
     @ManyToOne
     @JoinColumn(name = "placa", referencedColumnName = "placa")
     private Carros carro;
+
+    @ManyToOne
+    @JoinColumn(name = "email", referencedColumnName = "email")
+    private Cliente cliente;
 
     // Getters e Setters
     public long getIdReserva() {
@@ -31,22 +41,28 @@ public class Reserva implements Serializable {
         this.idReserva = idReserva;
     }
 
-    public LocalDate getDataReserva() {
+    
+
+    
+    public Date getDataReserva() {
         return dataReserva;
     }
 
-    public void setDataReserva(LocalDate dataReserva) {
+    public void setDataReserva(Date dataReserva) {
         this.dataReserva = dataReserva;
     }
 
-    public LocalDate getDataDevolucao() {
+    public Date getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(LocalDate dataDevolucao) {
+    public void setDataDevolucao(Date dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 
+    
+
+    
     public Carros getCarro() {
         return carro;
     }
@@ -54,4 +70,15 @@ public class Reserva implements Serializable {
     public void setCarro(Carros carro) {
         this.carro = carro;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    
+    
 }

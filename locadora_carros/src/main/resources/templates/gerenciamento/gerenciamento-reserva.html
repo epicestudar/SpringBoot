@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Alunos</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" th:href="@{css/gerenciamento.css}">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div th:insert="~{fragmentos/header :: header}"></div>
+    <div class="container mt-5">
+        <h1>Lista de Reservas</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Email do cliente</th>
+                    <th>ID da reserva</th>
+                    <th>Data da reserva</th>
+                    <th>Data da devolução</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="reserva : ${reservas}">
+                    <td th:text="${reserva.cliente != null ? reserva.cliente.email : 'N/A'}"></td> <!-- Verificação de nulidade -->
+                    <td th:text="${reserva.idReserva}"></td>
+                    <td th:text="${reserva.dataReserva}"></td>
+                    <td th:text="${reserva.dataDevolucao}"></td>
+                    <td>
+                        <a th:href="@{'/edit-reserva/' + ${reserva.idReserva} }" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/delete-reserva/' + ${reserva.idReserva} }" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    <div th:insert="~{fragmentos/footer :: footer}"></div>  
+</body>
+</html>

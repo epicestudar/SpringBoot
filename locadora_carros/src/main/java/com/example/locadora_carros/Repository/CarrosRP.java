@@ -7,4 +7,5 @@ import com.example.locadora_carros.Model.Carros;
 
 public interface CarrosRP extends CrudRepository<Carros, Long>{
     Carros findByIdCarro(Long idCarro);
+    Carros findByPlaca(String placa);
 }

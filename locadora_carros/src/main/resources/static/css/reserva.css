@@ -1,0 +1,10 @@
+#carroSelect {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+#carroSelect option {
+    padding: 5px;
+}
