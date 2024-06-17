@@ -73,3 +73,30 @@ JOIN carros c ON r.placa = c.placa
 WHERE r.data_reserva BETWEEN '2024-01-01' AND '2024-12-31';
 
 -- exercicio 17
+SELECT c.*
+FROM carros c
+LEFT JOIN reserva r ON c.id_carro = r.id_reserva
+WHERE r.id_reserva IS NULL;
+
+-- exercicio 18
+SELECT c.id_carro, c.placa, c.ano, c.modelo, c.disponibilidade, c.tipo, c.valor,
+       m.data_manutencao, m.descricao, m.custo
+FROM carros c
+JOIN manutencao m ON c.id_carro = m.id_carro
+WHERE m.data_manutencao = (
+    SELECT MAX(m2.data_manutencao)
+    FROM manutencao m2
+    WHERE m2.id_carro = c.id_carro
+)
+ORDER BY m.data_manutencao DESC;
+
+-- exercicio 19
+SELECT c.email, c.nome, COUNT(DISTINCT r.id_reserva) AS total_carros
+FROM cliente c
+JOIN reserva r ON c.email = r.email
+GROUP BY c.email, c.nome
+HAVING COUNT(DISTINCT r.id_reserva) > 1;
+
+-- exercicio 20
+SELECT AVG(EXTRACT(DAY FROM (r.data_devolucao - r.data_reserva))) AS media_dias_alugados
+FROM reserva r;
