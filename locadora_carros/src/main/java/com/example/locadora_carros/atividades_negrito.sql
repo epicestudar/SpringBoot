@@ -1,7 +1,7 @@
 -- exercicio 2
 SELECT * 
 FROM carros 
-WHERE disponibilidade = 'disponível';
+WHERE disponibilidade = 'Disponível';
 
 -- exercicio 3
 SELECT * 
